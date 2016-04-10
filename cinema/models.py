@@ -47,16 +47,20 @@ class members(models.Model):
 		return self.country
 
 class orders(models.Model):
+	hash_id = models.CharField(max_length=200, default=None)
 	amount = models.DecimalField(max_digits=7, decimal_places=2)
 	member_id = models.IntegerField(default=0)
 	status = models.IntegerField(default=0)
 	created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
-	paid_at = models.DateTimeField(auto_now=False, auto_now_add=False)
+	paid_at = models.DateTimeField(auto_now=True)
 	status_paypal = models.CharField(max_length=200)
 	id_paypal = models.CharField(max_length=200)
-	payment_fee = models.DecimalField(max_digits=7, decimal_places=2)
-	pending_reason = models.CharField(max_length=200)
+	payment_fee = models.DecimalField(max_digits=7, decimal_places=2, default=0)
+	pending_reason = models.CharField(max_length=200, default='not paid yet')
 	quantity = models.IntegerField(default=1)
+
+	def __hash_id__(self):
+		return self.hash_id
 
 	def __amount__(self):
 		return self.amount
@@ -110,6 +114,7 @@ class products(models.Model):
 		return self.description
 
 class tickets(models.Model):
+	code = models.CharField(max_length=200, default=0)
 	is_used = models.IntegerField(default=0)
 	order_id = models.IntegerField(default=0)
 	product_id = models.IntegerField(default=1)

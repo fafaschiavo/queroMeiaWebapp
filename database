@@ -1,0 +1,2 @@
+INSERT INTO quero_meia.cinema_members (first_name, last_name, email, email_paypal, phone, zip_code, address, city, state, country, created_at)
+values ('Fabrício', 'Schiavo', 'fayschiavo@gmail.com', 'fafaschiavo@msn.com', '11984917403', '04693-030', 'Rua professora Haidee Silva Martins 306', 'São Paulo', 'São Paulo', 'Brasil', now());

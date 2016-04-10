@@ -1,0 +1,5 @@
+INSERT INTO quero_meia.cinema_members (first_name, last_name, email, email_paypal, phone, zip_code, address, city, state, country, created_at)
+values ('Fabrício', 'Schiavo', 'fayschiavo@gmail.com', 'fafaschiavo@msn.com', '11984917403', '04693-030', 'Rua professora Haidee Silva Martins 306', 'São Paulo', 'São Paulo', 'Brasil', now());
+
+INSERT INTO quero_meia.cinema_products (name, price, created_at, description)
+values ('Ingresso Qualquer Dia', '17', now(), 'Este ingresso é válido para todos os filmes e horários exceto salas Prime, 3D e XD');
