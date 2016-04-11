@@ -144,33 +144,14 @@ def show_me_the_money(sender, **kwargs):
         if ipn_obj.custom == "Upgrade all users!":
             Users.objects.update(paid=True)
     else:
-    	print 'flag3'
+    	pass
+
+    return None
         #...
 
 @csrf_exempt
 def show_me_the_money_invalid(sender, **kwargs):
-    ipn_obj = sender
-    print 'hello2'
-    if ipn_obj.payment_status == ST_PP_COMPLETED:
-    	print 'flag'
-        # WARNING !
-        # Check that the receiver email is the same we previously
-        # set on the business field request. (The user could tamper
-        # with those fields on payment form before send it to PayPal)
-        if ipn_obj.receiver_email != "receiver_email@example.com":
-            print 'flag2'
-            # Not a valid payment
-            return
-
-        # ALSO: for the same reason, you need to check the amount
-        # received etc. are all what you expect.
-
-        # Undertake some action depending upon `ipn_obj`.
-        if ipn_obj.custom == "Upgrade all users!":
-            Users.objects.update(paid=True)
-    else:
-    	print 'flag3'
-        #...
+    return None
 
 payment_was_successful.connect(show_me_the_money)
 invalid_ipn_received.connect(show_me_the_money_invalid)
