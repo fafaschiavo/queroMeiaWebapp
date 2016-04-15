@@ -58,6 +58,7 @@ class orders(models.Model):
 	payment_fee = models.DecimalField(max_digits=7, decimal_places=2, default=0)
 	pending_reason = models.CharField(max_length=200, default='not paid yet')
 	quantity = models.IntegerField(default=1)
+	product_id = models.IntegerField(default=0)
 
 	def __hash_id__(self):
 		return self.hash_id
@@ -94,6 +95,9 @@ class orders(models.Model):
 
 	def __quantity__(self):
 		return self.quantity
+
+	def __product_id__(self):
+		return self.product_id
 
 class products(models.Model):
 	name = models.CharField(max_length=200)

@@ -18,7 +18,11 @@ import random
 def hash_id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
 
-def create_new_order():
+def create_new_order(product_id):
+
+	product = products.objects.get(id = product_id)
+	value = product.price
+
 	verify_existence = True
 	while verify_existence == True:
 		new_hash_id = hash_id_generator(10)
@@ -28,7 +32,7 @@ def create_new_order():
 		except:
 			verify_existence = False
 
-	new_order = orders(hash_id = new_hash_id, amount = settings.VALUE)
+	new_order = orders(hash_id = new_hash_id, amount = value, product_id = product_id)
 	new_order.save()
 
 	return new_hash_id
@@ -36,7 +40,7 @@ def create_new_order():
 def create_new_member(ipn_obj):
 	try:
 		new_member_first_name = ipn_obj.first_name
-	except:
+	except: 
 		new_member_first_name = '-'
 
 	try:
@@ -96,45 +100,77 @@ def update_order_success_payment(ipn_obj, member_id):
 		order.payment_fee = 0
 
 	try:
+		order.id_paypal = ipn_obj.txn_id
+	except :
+		order.payment_fee = 0
+
+	try:
 		order.pending_reason = ipn_obj.pending_reason
 	except :
 		order.pending_reason = 'paid'
 	order.save()
 	return None
 
+def consume_ticket_code(hash_id):
+	order = orders.objects.get(hash_id = hash_id)
+	product = order.product_id
+	available_tickets = tickets.objects.filter(product_id = product).exclude(is_used = 1)
+	ticket = available_tickets[0]
+	code = ticket.code
+
+	ticket.is_used = 1
+	ticket.order_id = order.id
+	ticket.save()
+
+	return code
+
 # Create your views here.
 
 def index(request):
-    link = 'https://tufjuljpld.localtunnel.me'
+    link = 'https://msqzqnxlcp.localtunnel.me'
 
-    hash_id = create_new_order()
-    context = {'hash_id': hash_id, 'link': link, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': settings.VALUE}
+    product1 = products.objects.get(id = settings.PRODUCT_ID_1)
+    value1 = product1.price
+
+    product2 = products.objects.get(id = settings.PRODUCT_ID_2)
+    value2 = product2.price
+
+    hash_id = create_new_order(settings.PRODUCT_ID_1)
+    hash_id2 = create_new_order(settings.PRODUCT_ID_2)
+
+    context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'link': link, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2}
     return render(request, "index.html", context)
+
+def result(request, hash_id):
+    try:
+    	order = orders.objects.get(hash_id = hash_id)
+    	if order.status == 1:
+    		code = consume_ticket_code(hash_id)
+    		return HttpResponse(code)
+    	else:
+    		return HttpResponse(401)
+    except:
+    	return HttpResponse(400)
 
 @csrf_exempt
 def show_me_the_money(sender, **kwargs):
     ipn_obj = sender
     if ipn_obj.payment_status == ST_PP_COMPLETED:
     	order = orders.objects.get(hash_id = ipn_obj.custom)
-    	if order.hash_id == ipn_obj.custom and order.amount == ipn_obj.mc_gross:
+    	if order.hash_id == ipn_obj.custom and order.amount == ipn_obj.mc_gross and settings.EMAIL_PAYPAL_ACCOUNT == ipn_obj.receiver_email:
     		try:
     			member_exist = members.objects.get(email = ipn_obj.payer_email)
     			member_id = member_exist.id
-    			print 'member id'
-    			print member_id
     		except:
     			member_id = create_new_member(ipn_obj)
     		
     		update_order_success_payment(ipn_obj, member_id)
-    		print ipn_obj.payer_email
         # WARNING !
         # Check that the receiver email is the same we previously
         # set on the business field request. (The user could tamper
         # with those fields on payment form before send it to PayPal)
         if ipn_obj.receiver_email != settings.EMAIL_PAYPAL_ACCOUNT:
             # Not a valid payment
-            print 'Email pagador'
-            print ipn_obj.payer_email
             return
 
         # ALSO: for the same reason, you need to check the amount

@@ -2,4 +2,13 @@ INSERT INTO quero_meia.cinema_members (first_name, last_name, email, email_paypa
 values ('Fabrício', 'Schiavo', 'fayschiavo@gmail.com', 'fafaschiavo@msn.com', '11984917403', '04693-030', 'Rua professora Haidee Silva Martins 306', 'São Paulo', 'São Paulo', 'Brasil', now());
 
 INSERT INTO quero_meia.cinema_products (name, price, created_at, description)
-values ('Ingresso Qualquer Dia', '17', now(), 'Este ingresso é válido para todos os filmes e horários exceto salas Prime, 3D e XD');
+values ('Ingresso Qualquer Dia', '21', now(), 'Este ingresso é válido para todos os filmes e horários exceto salas Prime, 3D e XD');
+
+INSERT INTO quero_meia.cinema_products (name, price, created_at, description)
+values ('Ingresso Qualquer Dia 3D', '26', now(), 'Este ingresso é válido para todos os filmes e horários exceto salas Prime');
+
+INSERT INTO quero_meia.cinema_products (name, price, created_at, description)
+values ('Teste1', '0.51', now(), 'Produto de Teste 1');
+
+INSERT INTO quero_meia.cinema_products (name, price, created_at, description)
+values ('Teste2', '0.52', now(), 'Produto de Teste 2');

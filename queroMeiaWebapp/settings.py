@@ -25,7 +25,9 @@ SECRET_KEY = '_gaqx%)0dc8=hd4m5!_v5a4sn)egl1#k21_kqs0*mxz571!zyq'
 #Paypal Information
 # EMAIL_PAYPAL_ACCOUNT = 'fafaschiavo@msn.com'
 EMAIL_PAYPAL_ACCOUNT = 'judelucca.19@gmail.com'
-VALUE = 0.5
+
+PRODUCT_ID_1 = 3
+PRODUCT_ID_2 = 4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
