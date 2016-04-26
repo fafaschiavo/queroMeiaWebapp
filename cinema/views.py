@@ -127,7 +127,7 @@ def consume_ticket_code(hash_id):
 # Create your views here.
 
 def index(request):
-    link = 'https://msqzqnxlcp.localtunnel.me'
+    link = 'https://kzljcejsnj.localtunnel.me'
 
     product1 = products.objects.get(id = settings.PRODUCT_ID_1)
     value1 = product1.price
@@ -141,16 +141,36 @@ def index(request):
     context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'link': link, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2}
     return render(request, "index.html", context)
 
+def success(request, hash_id):
+    hash_id_request = hash_id
+    context = {'hash_id': hash_id_request}
+    return render(request, "success.html", context)
+
 def result(request, hash_id):
+	#verify the order exists
     try:
     	order = orders.objects.get(hash_id = hash_id)
+    except:
+    	return HttpResponse(400)
+
+    #if this order already consumed a ticket, return the ticket
+    try:
+    	ticket = tickets.objects.get(order_id = order.id)
+    	return HttpResponse(ticket.code)
+    except:
+    	pass
+
+    #if the order was not paid return - 401
+    #if there is no available  ticket returne - 402
+    #if everything is fine return the ticket code
+    try:
     	if order.status == 1:
     		code = consume_ticket_code(hash_id)
     		return HttpResponse(code)
     	else:
     		return HttpResponse(401)
     except:
-    	return HttpResponse(400)
+    	return HttpResponse(402)
 
 @csrf_exempt
 def show_me_the_money(sender, **kwargs):
@@ -171,7 +191,7 @@ def show_me_the_money(sender, **kwargs):
         # with those fields on payment form before send it to PayPal)
         if ipn_obj.receiver_email != settings.EMAIL_PAYPAL_ACCOUNT:
             # Not a valid payment
-            return
+            return None
 
         # ALSO: for the same reason, you need to check the amount
         # received etc. are all what you expect.
@@ -187,6 +207,7 @@ def show_me_the_money(sender, **kwargs):
 
 @csrf_exempt
 def show_me_the_money_invalid(sender, **kwargs):
+    print 'flag6'
     return None
 
 payment_was_successful.connect(show_me_the_money)

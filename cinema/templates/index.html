@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>JAMES Coming Soon</title>
+	<title>QueroMeia</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 	
@@ -9,6 +9,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
 	
 	<!-- CSS Files comes here -->
+	<link rel="shortcut icon" type="image/png" href="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/icon.png"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
@@ -25,27 +26,176 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<style type="text/css">
 		.hero_fullscreen.background_solid{
-			/*background-color: #afb42b;*/
-			background-color: #F4C708;
+			background-color: #FFF;
+			padding-top: 0.2rem;
 		}
 		.btn, .btn-large {
-		    background-color: #cc2127;
+		    background-color:#eec92c;
 		}
 		a{
-			color: #cc2127;
+			color: #eec92c;
 		}
 		#main_content {
 		    display: table;
 		    overflow: hidden;
 		    height: 50%;
-		    margin-top: 2%;
+		    margin-top: 4%;
 		}
 		.rotate-ticket{
 			-ms-transform: rotate(-10deg); /* IE 9 */
 		    -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
 		    transform: rotate(-10deg);
 		}
-	</style>  
+		.btn, .btn-large, .btn-flat{
+			margin-bottom: 0px;
+		}
+		.button-container{
+			text-align: center;
+		}
+		.number-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #eec92c;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 55%;
+		    float: right;
+		}
+		.text-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    float: left;
+		    padding: 5px;
+		}
+		.number{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 800;
+			font-size: 40px;
+		}
+		.text{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 400;
+			font-size: 21px;
+		}
+		.text-spacer{
+			height: 22%;
+		}
+		.cell-special .mdl-cell{
+			margin: 0px;
+		}
+		.mdl-cell{
+			margin: 0px;
+		}
+		.spacer{
+			height: 1.43em;
+		}
+		.header-properties{
+			background-color: #fff; 
+			-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+			-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+		}
+		.logo{
+			height: 80px;
+		}
+		.hero_fullscreen.background_solid{
+			padding-top: 0px;
+		}
+		.group-one{
+			position: relative;
+			left: 1rem;
+		}
+		.group-two{
+			position: relative;
+		}
+		.group-three{
+			position: relative;
+			right: 4rem;
+		}
+		.header-link{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 400;
+			font-size: 14px;
+			padding: 3px;
+		    border-bottom: 2px solid;
+    		border-bottom-color: #eec92c;
+    		border-bottom-left-radius: 0px;
+    		border-bottom-right-radius: 0px;
+    		float: right;
+		}
+		.spacer-header-menu{
+			height: 2.4em;
+		}
+		.buy-buttom{
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18), 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+		}
+		#cta-button{
+			opacity: 0;
+		}
+		.rotate-ticket{
+			-ms-transform: rotate(-10deg); /* IE 9 */
+		    -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+		    transform: rotate(-10deg);
+		}
+		.product-container{
+			text-align: center;
+		}
+		.text-box-2{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    padding: 5px;
+		    margin: auto;
+		}
+		.text-box-3{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    padding: 5px;
+		    margin-left: 4.5%;
+		}
+		.product-spacer{
+			height: 10px;
+		}
+		.buy-butom-paypal{
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18), 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+		    border-radius: 1px;
+		}
+		.error-spacer{
+			height: 50px;
+		}
+		.social-icon{
+			width: 30px;
+			border-radius: 6px;
+		}
+		@-moz-document url-prefix(){
+			#main_content{
+				margin-top: 2rem;
+			}
+			.mockup img{
+				width: 26rem;
+				margin-top: 5rem;
+				right: 7rem;
+			}
+		}
+	</style>
   </head>
   
   <body>
@@ -64,114 +214,341 @@
 	
 	
 		<!-- Fullscreen homepage -->
-		<section class="hero_fullscreen newsletter timer mockups background_solid"><!-- You can edit classes of this section to control the content that i displayed and backgrounds of this section, more info in documentation. -->
-			
+		<section class="hero_fullscreen newsletter timer mockups background_solid" style="background: url('https://s3-sa-east-1.amazonaws.com/elements-queromeia/background/background-v3.png') center 30% no-repeat; background-size: cover;"><!-- You can edit classes of this section to control the content that i displayed and backgrounds of this section, more info in documentation. -->
 			
 			<!-- Logo and navigation -->
-		  	<div class="container top_bar" >
-		  		<div class="row">
-		  			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		  			<img src="http://cl.ly/3B0Z2F1a3G1K/logo-v4.png" alt="logo" class="logo" style="width: 200px;"/>
-		  			<span style="margin-left: 15px; position: absolute; bottom: 50px; font-size: 35px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
-		  				MEIA ENTRADA PARA <span style="color: #cc2127;font-size: 38px; font-weight: bold;">TODOS</span>,
-		  			</span>
-		  			<span style="margin-left: 15px; position: absolute; bottom: 10px; font-size: 35px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
-		  				SEM EXCEÇÃO
-		  			</span>
-		  			<nav class="navigation_desktop">
-		  				<ul>
-		  					<li><a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light" style="background-color:rgba(255, 255, 255, .3); font-size: 20px;">Mais informações</a></li>
-		  				</ul>
-		  			</nav>
-		  			</div>
-		  		</div>
+			<div class="header-properties">
+			  	<div class="container top_bar" >
+			  		<div class="mdl-grid">
+					  <div class="mdl-cell mdl-cell--4-col">
+					  	<a href="http://queromeia.com/"><img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/logo-line.png" alt="logo" class="logo"/></a>
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	<div class="spacer-header-menu"></div>
+					  	<div class="button-container">
+					  		<div>
+					  			<a id="header-buy" class="btn-flat waves-effect waves-light header-link">Comprar</a>
+					  		</div>
+					  	</div>
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	<div class="spacer-header-menu"></div>
+					  	<div class="button-container">
+					  		<div>
+					  			<a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
+					  		</div>
+					  	</div>
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	<div class="spacer-header-menu"></div>
+					  	<div class="button-container">
+					  		<div>
+					  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Recuperar código</a>
+					  		</div>
+					  	</div>
+					  </div>
+					</div>
+				</div>
 			</div>
 			<!-- //Logo and navigation -->
 			
-			
 			<!-- Main content -->
-		  	<div class="container align-left" id="main_content" style="padding-left: 6px;">
-				<div class="content_container row" style="width: 100%">
-				
-					<div style="background-image: url('http://cl.ly/1H2G2l1C243M/explanation-v4.png'); min-height: 400px; background-repeat: no-repeat;"> </div>
+			<div id="home-content">
+			  	<div class="container align-left" id="main_content" style="padding-left: 6px;">
+					<div class="content_container row" style="width: 100%">
+					
+						<div style="min-height: 400px; background-repeat: no-repeat;">
 
-					<div class="mdl-grid">
-					  <div class="mdl-cell mdl-cell--6-col">
-						<div class="mdl-grid">
-						  <div class="mdl-cell mdl-cell--3-col"></div>
-						  <div class="mdl-cell mdl-cell--6-col">
-						  	<button class="btn waves-effect waves-light buy-buttom" type="submit" name="action" style="width: 100%; height: 60px; font-size: 22px;">EU QUERO!
-						  	</button>
+							<div class="mdl-grid">
+								<div class="mdl-cell mdl-cell--9-col cell-special">
+								
+									<div class="mdl-grid group-one" style="padding: 0px;">
+										<div class="mdl-cell mdl-cell--2-col">
+											<div class="number-box" style="">
+												<div class="spacer"></div>
+												<span class="number">
+													1
+												</span>
+											</div>
+										</div>
+										<div class="mdl-cell mdl-cell--4-col">
+										
+										</div>
+										<div class="mdl-cell mdl-cell--5-col">
+										
+										</div>
+									</div>
+
+									<div class="mdl-grid group-one" style="padding: 0px;">
+										<div class="mdl-cell mdl-cell--2-col">
+										</div>
+										<div class="mdl-cell mdl-cell--7-col">
+
+											<div class="text-box" style="">
+												<div class="text-spacer"></div>
+												<span class="text">
+													Compre seu ingresso no <span style="font-weight: 600; color: #221d1f">QUERO</span><span style="font-weight: 600; color: #eec92c;">MEIA</span><span style="font-weight: 600;">.com</span> pagando meia entrada
+												</span>
+											</div>
+
+										</div>
+										<div class="mdl-cell mdl-cell--2-col">
+										
+										</div>
+									</div>
+
+									<div class="mdl-grid group-two" style="padding: 0px;">
+										<div class="mdl-cell mdl-cell--6-col">
+
+										</div>
+										<div class="mdl-cell mdl-cell--4-col">
+										
+										</div>
+										<div class="mdl-cell mdl-cell--2-col">
+
+											<div class="number-box" style="float: left;">
+												<div class="spacer"></div>
+												<span class="number">
+													2
+												</span>
+											</div>
+										
+										</div>
+									</div>
+
+									<div class="mdl-grid group-two" style="padding: 0px;">
+										<div class="mdl-cell mdl-cell--3-col">
+										</div>
+										<div class="mdl-cell mdl-cell--7-col">
+
+											<div class="text-box" style="float: right;">
+												<div class="text-spacer"></div>
+												<span class="text">
+													Você receberá um código promocional após o pagamento
+												</span>
+											</div>
+
+										</div>
+										<div class="mdl-cell mdl-cell--2-col">
+										
+										</div>
+									</div>
+
+
+									<div class="mdl-grid group-three" style="padding: 0px;">
+										<div class="mdl-cell mdl-cell--2-col">
+
+											<div class="number-box" style="">
+												<div class="spacer"></div>
+												<span class="number">
+													3
+												</span>
+											</div>
+										
+										</div>
+										<div class="mdl-cell mdl-cell--7-col">
+										
+										</div>
+										<div class="mdl-cell mdl-cell--3-col">
+
+										</div>
+									</div>
+
+									<div class="mdl-grid group-three" style="padding: 0px;">
+										<div class="mdl-cell mdl-cell--2-col">
+										
+										</div>
+										<div class="mdl-cell mdl-cell--7-col">
+
+											<div class="text-box" style="">
+												<div class="text-spacer"></div>
+												<span class="text">
+													Escolha sua sessão no site do <span style="font-weight: 600;">Cinemark</span> e use seu código <span style="font-weight: 600; color: #221d1f">QUERO</span><span style="font-weight: 600; color: #eec92c;">MEIA</span>
+												</span>
+											</div>
+
+										</div>
+										<div class="mdl-cell mdl-cell--2-col">
+										</div>
+									</div>
+
+								</div>
+								<div class="mdl-cell mdl-cell--3-col"></div>
+							</div>
+
+						</div>
+
+						<div class="mdl-grid" style="margin-top: 1.5rem;">
+						  <div class="mdl-cell mdl-cell--9-col">
+							<div class="mdl-grid">
+							  <div class="mdl-cell mdl-cell--3-col"></div>
+							  <div class="mdl-cell mdl-cell--6-col">
+							  	<button id="cta-button" class="btn waves-effect waves-light buy-buttom" type="submit" name="action" style="width: 60%; background-color:#eec92c; height: 60px;">
+							  		<div style="height: 0.5em;"></div>
+							  		<span style="color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; font-size: 28px;">QUERO</span><span style="color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300; font-size: 28px;">MEIA!</span>
+							  	</button>
+							  </div>
+							  <div class="mdl-cell mdl-cell--3-col"></div>
+							</div>
 						  </div>
 						  <div class="mdl-cell mdl-cell--3-col"></div>
 						</div>
-					  </div>
-					  <div class="mdl-cell mdl-cell--6-col"></div>
-					</div>
-
-					<!-- <button class="btn waves-effect waves-light" type="submit" name="action">Send</button> -->
-
-
-				    <!-- Headline (put class="headline" in Homepage section if you want slogan to be shown)-->
-<!-- 					<h2 class="slogan">Our website is coming<br>really soon!</h2> -->
-					
-					
-					<!-- Timer (put class="timer" in Homepage section if you want timer to be shown)-->
-<!-- 					<div id="countdown" class="countdown">
-						<div class="countdown_part first">
-							<h1 class="days">00</h1>
-							<p class="timeRefDays">days</p>
-						</div>
-						<div class="countdown_part">
-							<h1 class="hours">00</h1>
-							<p class="timeRefHours">hours</p>
-						</div>
-						<div class="countdown_part">
-							<h1 class="minutes">00</h1>
-							<p class="timeRefMinutes">minutes</p>
-						</div>
-						<div class="countdown_part last">
-							<h1 class="seconds">00</h1>
-							<p class="timeRefSeconds">seconds</p>
-						</div>
-					</div> -->
-					<!-- //Timer -->
-					
-					
-<!-- 					<h6>If you would like to be notified when the big day comes, <br class="hidden-xs">please leave your e-mail address below.</h6> -->
-					
-					
-					<!-- Newsletter Form (put class="newsletter" in Homepage section if you want newsletter form to be shown)-->
-<!-- 		  			<div class="newsletter_form">
-		  				<form action="php/send.php" method="post" id="subscribe-form">
-		  				<div class="input-field">
-		  					<div data-icon="&#xe563;" class="prefix"></div>
-			  				<input id="email" type="email" name="email" class="validate">
-			  				<label for="email">Email address</label>	
-			  			</div>
-			  			<button class="btn waves-effect waves-light subscribe-submit" type="submit" name="action" id="subscribe-form-submit">Subscribe Now</button>
-			  			</form>
-			  			<div id="preview"></div>
-		  			</div> -->
-		  			<!-- //Newsletter form -->
-			
-			
-				</div>		
-			</div>  
+				
+					</div>		
+				</div>  
+			</div>
 			<!-- //Main content -->
 
+
+			<!-- Buy content -->
+			<div id="buy-content" style="display: none;">
+				<div class="product-spacer"></div>
+
+				<div style="margin:auto; width: 1170px;">
+					<div class="mdl-grid">
+					  <div class="mdl-cell mdl-cell--6-col product-container">
+
+					  	<div class="text-box-2" id="1">
+					  		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/ingresso-red-01.png" style="width: 55%; margin-top: 30px; margin-bottom: 17px;" class="rotate-ticket">
+					  		<br><br>
+					  		<div style="margin: auto; width: 80%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin-bottom: 4px;">
+					  			Ingresso QueroMeia RED - Filmes 2D
+					  		</div>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 18px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
+					  			Válido todos os dias e horários
+					  		</div>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 18px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
+								Exceto salas 3D, XD, Prime e DBox
+					  		</div>
+					  		<br><br>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; opacity: 0.85; margin-bottom: 4px;">
+					  			<span style="font-size: 18px; font-weight: 300;">Valor original - </span>
+					  			<span style="font-size: 20px; text-decoration: line-through; font-weight: 400;">R$ 33,00 </span>
+					  			<span style="font-size: 15px; font-weight: 300;">+ 5,88 (Operação)</span>
+					  		</div>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500;">
+					  			<span style="font-size: 22px; font-weight: 400;">Valor QueroMeia - </span>
+					  			<span style="font-size: 26px; font-weight: 900; color: #cc2127">R$ 16,00 </span>
+					  			<span style="font-size: 16px; font-weight: 400;">+ 5,00 (Operação)</span>
+					  		</div>
+					  		<br>
+							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+								<input type="hidden" name="cmd" value="_cart">
+								<input type="hidden" name="business" value="{{email_receiver}}">
+								<input type="hidden" name="lc" value="US">
+								<input type="hidden" name="item_name" value="Ingresso - QueroMeia Red">
+								<input type="hidden" name="item_number" value="1">
+								<input type="hidden" name="amount" value="{{value}}">
+								<input type="hidden" name="currency_code" value="BRL">
+								<input type="hidden" name="button_subtype" value="products">
+								<input type="hidden" name="no_note" value="0">
+								<input type="hidden" name="tax_rate" value="0.000">
+								<input type="hidden" name="shipping" value="0.00">
+								<input type="hidden" name="add" value="1">
+								<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+								<input type="hidden" name="notify_url" value="notify_url">
+							<!-- 	<input type="hidden" name="return" value="{{link}}{{hash_id}}"> -->
+								<input type="hidden" name="custom" value="{{hash_id}}">
+								<input class="buy-butom-paypal" type="image" style="width: 50%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+							</form>
+							<img style="margin: 10px;" src="https://www.paypal-brasil.com.br/novologocenter/img/paypal/botao-checkout_horizontal_paguecomseguranca_pb.png">
+							<br>
+					  	</div>
+
+					  </div>
+					  <div class="mdl-cell mdl-cell--6-col product-container">
+
+					  	<div class="text-box-2" id="2">
+					  		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/ingresso-gold-01.png" style="width: 55%; margin-top: 30px; margin-bottom: 17px;" class="rotate-ticket">
+					  		<br><br>
+					  		<div style="margin: auto; width: 80%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin-bottom: 4px;">
+					  			Ingresso QueroMeia GOLD - Filmes 3D
+					  		</div>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 18px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
+					  			Válido todos os dias e horários
+					  		</div>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 18px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
+								Exceto salas Prime e DBox
+					  		</div>
+					  		<br><br>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; opacity: 0.85; margin-bottom: 4px;">
+					  			<span style="font-size: 18px; font-weight: 300;">Valor original - </span>
+					  			<span style="font-size: 20px; text-decoration: line-through; font-weight: 400;">R$ 42,00 </span>
+					  			<span style="font-size: 15px; font-weight: 300;">+ 5,88 (Operação)</span>
+					  		</div>
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500;">
+					  			<span style="font-size: 22px; font-weight: 400;">Valor QueroMeia - </span>
+					  			<span style="font-size: 26px; font-weight: 900; color: #cc2127">R$ 21,00 </span>
+					  			<span style="font-size: 16px; font-weight: 400;">+ 5,00 (Operação)</span>
+					  		</div>
+							<br>
+							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_cart">
+								<input type="hidden" name="business" value="{{email_receiver}}">
+								<input type="hidden" name="lc" value="US">
+								<input type="hidden" name="item_name" value="Ingresso - QueroMeia Gold">
+								<input type="hidden" name="item_number" value="1">
+								<input type="hidden" name="amount" value="{{value2}}">
+								<input type="hidden" name="currency_code" value="BRL">
+								<input type="hidden" name="button_subtype" value="products">
+								<input type="hidden" name="no_note" value="0">
+								<input type="hidden" name="tax_rate" value="0.000">
+								<input type="hidden" name="shipping" value="0.00">
+								<input type="hidden" name="add" value="1">
+								<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+								<input type="hidden" name="notify_url" value="notify_url">
+								<!-- <input type="hidden" name="return" value="{{link}}{{hash_id}}"> -->
+								<input type="hidden" name="custom" value="{{hash_id2}}">
+								<input class="buy-butom-paypal" type="image" style="width: 50%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+							</form>
+							<img style="margin: 10px;" src="https://www.paypal-brasil.com.br/novologocenter/img/paypal/botao-checkout_horizontal_paguecomseguranca_pb.png">
+							<br>
+					  	</div>
+					  	
+					  </div>
+					</div>
+				</div>
+
+				<div style="margin:auto; width: 1170px; margin-top: 20px;">
+					<div class="mdl-grid">
+
+						<div class="mdl-cell mdl-cell--12-col product-container">
+							<div class="text-box-3">
+								
+							  	<span style=" font-size: 17px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400;">
+							  	* Os vouchers aqui vendidos são válidos apenas para troca no site 
+							  	</span>
+							  	<a href="http://www.ingresso.com/" target="_blank" style=" font-size: 17px; color: #eec92c; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900;">
+							  	Ingresso.com
+							  	</a>
+							  	<span style=" font-size: 17px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400;">
+							  	. Eles não são válidos para resgate na bilheteria.
+							  	</span>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- //Buy content -->
 
 			<!-- Mockups (put class="mockups" in Homepage section if you want mockups to be shown)-->
 			<!-- /Mockup 1-->
 			<div class="mockup mockup-right mockup-animation1">
-			<img src="http://cl.ly/1n3t3K340d1e/back.png" alt="logo" /> <!-- back -->
+			<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/back.png" alt="logo" /> <!-- back -->
 			</div>
 			<!-- //Mockup 1-->
 			
 			
 			<!-- /Mockup 2-->
 			<div class="mockup mockup-right mockup-animation2">
-			<img src="http://cl.ly/1z3U0N1v0v3v/front.png" alt="logo" /> <!-- front -->
+			<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/front.png" alt="logo" /> <!-- front -->
 			</div>
 			<!-- //Mockup 2-->
 
@@ -179,239 +556,24 @@
 			
 		</section><!-- //Homepage -->
 		
-		
-
-
-
-
-
-
-
-
-
-
-
-<!-- Fullscreen homepage -->
-		<section class="hero_fullscreen newsletter timer mockups background_solid"><!-- You can edit classes of this section to control the content that i displayed and backgrounds of this section, more info in documentation. -->
-			
-			
-			<!-- Logo and navigation -->
-		  	<div class="container top_bar" >
-		  		<div class="row">
-		  			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		  			<img src="http://cl.ly/3B0Z2F1a3G1K/logo-v4.png" alt="logo" class="logo" style="width: 200px;"/>
-		  			<span style="margin-left: 15px; position: absolute; bottom: 50px; font-size: 35px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
-		  				MEIA ENTRADA PARA <span style="color: #cc2127;font-size: 38px; font-weight: bold;">TODOS</span>,
-		  			</span>
-		  			<span style="margin-left: 15px; position: absolute; bottom: 10px; font-size: 35px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
-		  				SEM EXCEÇÃO
-		  			</span>
-		  			<nav class="navigation_desktop">
-		  				<ul>
-		  					<li><a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light" style="background-color:rgba(255, 255, 255, .3); font-size: 20px;">Mais informações</a></li>
-		  				</ul>
-		  			</nav>
-		  			</div>
-		  		</div>
-			</div>
-			<!-- //Logo and navigation -->
-			
-			
-			<!-- Main content -->
-		  	<div class="container align-left" id="main_content" style="padding-left: 6px;">
-				<div class="content_container row" style="width: 100%">
-
-					<div class="mdl-grid">
-
-					  <!-- <div class="mdl-cell mdl-cell--6-col">
-					  	<img src="http://cl.ly/3Q1b3u2l1X40/tickets-3.png">
-					  </div> -->
-
-					 <div class="mdl-cell mdl-cell--6-col">
-
-					 <div style="background-color: rgba(255, 255, 255, 0.2); border-radius: 20px; text-align: center;">
-							<img src="http://cl.ly/2o2L2h2r1K1t/ingresso-red-01.png" style="width: 55%; margin-top: 40px; margin-bottom: 17px;" class="rotate-ticket">
-
-						  	<div>
-						  		<br>
-						  		<div style="margin: auto; width: 60%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500;">Válido todos os dias e horários, exceto salas 3D, XD, Prime e DBox</div>
-						  		<br>
-						  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; opacity: 0.85;">
-						  			<span style="font-size: 18px; font-weight: 300;">Valor original - </span>
-						  			<span  style="font-size: 22px; text-decoration: line-through; font-weight: 400;">R$ 33,00 </span>
-						  			<span  style="font-size: 15px; font-weight: 300;">+ 5,88 (Operação)</span>
-						  		</div>
-						  		<br>
-						  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500;">
-						  			<span style="font-size: 24px; font-weight: 400;">Valor QueroMeia - </span>
-						  			<span  style="font-size: 28px; font-weight: 900; color: #cc2127">R$ 16,00 </span>
-						  			<span  style="font-size: 18px; font-weight: 400;">+ 5,00 (Operação)</span>
-						  		</div>
-						  	
-								<div class="mdl-grid">
-								  <div class="mdl-cell mdl-cell--3-col"></div>
-								  <div class="mdl-cell mdl-cell--6-col">
-								  	<button class="btn waves-effect waves-light buy-buttom" type="submit" name="action" style="width: 100%; height: 60px; font-size: 22px;">COMPRAR
-								  	</button>
-								  </div>
-								  <div class="mdl-cell mdl-cell--3-col"></div>
-								</div>
-							</div>
-
-						</div>
-
-					  </div>
-
-					  <div class="mdl-cell mdl-cell--6-col">
-
-						<div style="background-color: rgba(255, 255, 255, 0.2); border-radius: 20px; text-align: center;">
-							  <img src="http://cl.ly/0L3d042X2J1s/ingresso-gold-01.png" style="width: 55%; margin-top: 40px; margin-bottom: 17px;" class="rotate-ticket">
-
-							  	<div>
-							  		<br>
-							  		<div style="margin: auto; width: 60%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500;">Válido todos os dias e horários, exceto salas Prime e DBox</div>
-							  		<br>
-							  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; opacity: 0.85;">
-							  			<span style="font-size: 18px; font-weight: 300;">Valor original - </span>
-							  			<span  style="font-size: 22px; text-decoration: line-through; font-weight: 400;">R$ 42,00 </span>
-							  			<span  style="font-size: 15px; font-weight: 300;">+ 5,88 (Operação)</span>
-							  		</div>
-							  		<br>
-							  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500;">
-							  			<span style="font-size: 24px; font-weight: 400;">Valor QueroMeia - </span>
-							  			<span  style="font-size: 28px; font-weight: 900; color: #cc2127">R$ 21,00 </span>
-							  			<span  style="font-size: 18px; font-weight: 400;">+ 5,00 (Operação)</span>
-							  		</div>
-							  	
-									<div class="mdl-grid">
-									  <div class="mdl-cell mdl-cell--3-col"></div>
-									  <div class="mdl-cell mdl-cell--6-col">
-									  	<button class="btn waves-effect waves-light buy-buttom" type="submit" name="action" style="width: 100%; height: 60px; font-size: 22px;">COMPRAR
-									  	</button>
-									  </div>
-									  <div class="mdl-cell mdl-cell--3-col"></div>
-									</div>
-								</div>
-							  </div>
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-			<div class="mdl-grid">
-			  <div class="mdl-cell mdl-cell--2-col"></div>
-			  <div class="mdl-cell mdl-cell--8-col" style="background-color: rgba(255, 255, 255, 0.2); border-radius: 7px; text-align: center; padding: 10px;">
-			  	<span style=" font-size: 17px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400;">
-			  	* Os vouchers aqui vendidos são válidos apenas para troca no site 
-			  	</span>
-			  	<span style=" font-size: 17px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900;">
-			  	Ingresso.com
-			  	</span>
-			  	<span style=" font-size: 17px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400;">
-			  	. Ele não são válidos para resgate na bilheteria.
-			  	</span>
-			  </div>
-			  <div class="mdl-cell mdl-cell--2-col"></div>
-			</div>
-			<!-- //Main content -->
-			
-		</section><!-- //Homepage -->
-		
-
-
-
-
-
-
-
-
-
-
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-	<input type="hidden" name="cmd" value="_cart">
-	<input type="hidden" name="business" value="{{email_receiver}}">
-	<input type="hidden" name="lc" value="US">
-	<input type="hidden" name="item_name" value="teste">
-	<input type="hidden" name="item_number" value="1">
-	<input type="hidden" name="amount" value="{{value}}">
-	<input type="hidden" name="currency_code" value="BRL">
-	<input type="hidden" name="button_subtype" value="products">
-	<input type="hidden" name="no_note" value="0">
-	<input type="hidden" name="tax_rate" value="0.000">
-	<input type="hidden" name="shipping" value="0.00">
-	<input type="hidden" name="add" value="1">
-	<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-	<input type="hidden" name="notify_url" value="{{link}}/paypal/">
-<!-- 	<input type="hidden" name="return" value="{{link}}{{hash_id}}"> -->
-	<input type="hidden" name="custom" value="{{hash_id}}">
-	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-	<input type="hidden" name="cmd" value="_cart">
-	<input type="hidden" name="business" value="{{email_receiver}}">
-	<input type="hidden" name="lc" value="US">
-	<input type="hidden" name="item_name" value="teste">
-	<input type="hidden" name="item_number" value="1">
-	<input type="hidden" name="amount" value="{{value2}}">
-	<input type="hidden" name="currency_code" value="BRL">
-	<input type="hidden" name="button_subtype" value="products">
-	<input type="hidden" name="no_note" value="0">
-	<input type="hidden" name="tax_rate" value="0.000">
-	<input type="hidden" name="shipping" value="0.00">
-	<input type="hidden" name="add" value="1">
-	<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-	<input type="hidden" name="notify_url" value="{{link}}/paypal/">
-<!-- 	<input type="hidden" name="return" value="{{link}}{{hash_id}}"> -->
-	<input type="hidden" name="custom" value="{{hash_id2}}">
-	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<!-- More info -->
 		<section id="more_info">
 			<div class="container">
-							<!-- Social Icons -->
+			<!-- Social Icons -->
 			<div class="container">
 				<div class="social_icons_container align-left">
 				  	<div class="social_icons">
 		                <ul>
-		                    <li><div data-icon="&#xe282;" class="social_icon twitter_icon" onclick="location.href='#'"></div></li>
-		                    <li><div data-icon="&#xe281;" class="social_icon facebook_icon" onclick="location.href='#'"></div></li>
-		                    <li><div data-icon="&#xe279;" class="social_icon linkdin_icon" onclick="location.href='#'"></div></li>
-		                    <li><div data-icon="&#xe27f;" class="social_icon dribbble_icon" onclick="location.href='#'"></div></li>
+		                    <li>
+		                    	<a href="#">
+		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/icon+(1).svg" class="social-icon">
+		                    	</a>
+		                    </li>
+		                    <li>
+		                    	<a href="#">
+		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/social-network.svg"  class="social-icon">
+		                    	</a>
+		                    </li>
 		                </ul>
 				    </div>
 			    </div>
@@ -441,7 +603,7 @@
 					<!-- Contact Form Section -->
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
 						<h3>Entre em contato</h3>
-						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">contato@queromeia.com</a>.</p>
+						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">atendimento@queromeia.com</a>.</p>
 					
 					
 						<!-- Contact Form -->
@@ -498,21 +660,126 @@
     
     <!-- Show message after newsletter form submit -->
 	<script type="text/javascript">
-        $('document').ready(function()
-            {
-            $('#subscribe-form').ajaxForm( {
-                target: '#preview',
-                success: function() {       
-                      $('#preview').addClass( "show_message" );
-                    }
-                });
-            });
 
-		function enable_buttom() {
-			$(".buy-buttom").css("z-index", "1000");
-		};
-		setTimeout(enable_buttom, 3000)
+	var notify_url_fields = jQuery( "[name='notify_url']" );
+	var url_notify;
+	var url = window.location.host;
+	var protocol = window.location.protocol;
+	url_notify = protocol + '//' + url + '/paypal/';
+
+	var i;
+	for (i = 0; i < notify_url_fields.length; ++i) {
+	    notify_url_fields[i].value =url_notify;
+	}
+	// url_notify = 'http://' + url + '/result/' + '{{hash_id}}';
+	// http://127.0.0.1:8000/success/oqldswqm8r/
+	// url_request = protocol + '//' + url + '/success/' + '{{hash_id}}';	
+
+	// window.location.replace("http://stackoverflow.com");	
+
+	var url = window.location.host;
+	var protocol = window.location.protocol;
+	$("input").click(function() {
+		var element = $(this).closest("div");
+		if (element[0].id == 1){
+			setTimeout(function(){ window.location.href = protocol + '//' + url + '/success/' + '{{hash_id}}'; }, 3000);
+		} else {
+			setTimeout(function(){ window.location.href = protocol + '//' + url + '/success/' + '{{hash_id2}}'; }, 3000);
+		}
+	});
+
+	var number_box_width
+	var text_box_width
+	var window_height
+
+	window_height = $(".hero_fullscreen").width();
+	$(".product-spacer").height(window_height/16 + 'px');
+
+	number_box_width = $(".number-box").width();
+	$(".number-box").height(number_box_width + 'px');
+
+	text_box_width = $(".text-box").width();
+	$(".text-box").height(text_box_width/5 + 'px');
+
+	var FIREFOX = /Firefox/i.test(navigator.userAgent);
+
+	if (FIREFOX) {
+	  	window_height = $(".hero_fullscreen").width();
+		$(".product-spacer").height(window_height/100 + 'px');
+
+		number_box_width = $(".number-box").width();
+		$(".number-box").height(number_box_width + 'px');
+
+		text_box_width = $(".text-box").width();
+		$(".text-box").height(text_box_width/7 + 'px');
+
+		$(".text-spacer").height('11%');
+
+		if(window_height > 1700){
+			window_height = $(".hero_fullscreen").width();
+			$(".product-spacer").height(window_height/16 + 'px');
+
+			number_box_width = $(".number-box").width();
+			$(".number-box").height(number_box_width + 'px');
+
+			text_box_width = $(".text-box").width();
+			$(".text-box").height(text_box_width/5 + 'px');
+			$(".mockup img").width("31rem");
+			$("#main_content").css("margin-top", "6rem");
+		}
+	}
+
+    $('document').ready(function()
+        {
+        $('#subscribe-form').ajaxForm( {
+            target: '#preview',
+            success: function() {       
+                  $('#preview').addClass( "show_message" );
+                }
+            });
+        });
+
+	function enable_buttom() {
+		$(".buy-buttom").css("z-index", "1000");
+		$("#cta-button").fadeTo(200, 1);
+	};
+	setTimeout(enable_buttom, 4500);
+
+	function change_content() {
+		$('#home-content').css("display", "none");
+		$('.mockup-animation1').css("display", "none");
+		$('.mockup-animation2').css("display", "none");
+		$('#buy-content').css("display", "inline");
+		$('#buy-content').find('*').css("opacity", "0");
+		$('#buy-content').find('*').animate({ opacity: 1 }, 300);
+	};
+
+	function buy_content(){
+		$('#home-content').fadeTo(300, 0);
+		$('.mockup-animation1').fadeTo(300, 0);
+		$('.mockup-animation2').fadeTo(300, 0);
+		setTimeout(change_content, 320)
+	};
+
+	$("#header-buy").click(function(){
+		buy_content();
+	});
+
+	$("#cta-button").click(function(){
+		buy_content();
+	});
     </script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-76869824-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
     
   </body>
 </html>

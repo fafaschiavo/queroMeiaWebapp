@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>QueroMeia</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	
+	<!-- Included Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+	
+	<!-- CSS Files comes here -->
+	<link rel="shortcut icon" type="image/png" href="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/icon.png"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/grid12.css" rel="stylesheet" media="screen">                              	 <!-- Grid System -->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/james_typography.css" rel="stylesheet" media="screen">                       <!-- James Framework - TYPOGRAPHY -->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/main.css" rel="stylesheet" media="screen">                                   <!-- Main CSS file -->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/color_scheme_dark.css" rel="stylesheet" media="screen">                      <!-- Color scheme (dark/light)-->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/colors/color_palette_lime.css" rel="stylesheet" media="screen">              <!-- Color palette -->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/rapid-icons.css" rel="stylesheet" media="screen">                            <!-- James Framework - ICONS -->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/js_styles/jquery.maximage.min.css" rel="stylesheet" media="screen">          <!-- MaxImage background image slideshow -->
+	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/responsivity.css" rel="stylesheet" media="screen">                           <!-- Responsive Fixes -->
+	
+	<!-- Modernizer and IE specyfic files -->  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	<style type="text/css">
+		.sk-folding-cube {
+		  margin: 20px auto;
+		  width: 40px;
+		  height: 40px;
+		  position: relative;
+		  -webkit-transform: rotateZ(45deg);
+		          transform: rotateZ(45deg);
+		}
+
+		.sk-folding-cube .sk-cube {
+		  float: left;
+		  width: 50%;
+		  height: 50%;
+		  position: relative;
+		  -webkit-transform: scale(1.1);
+		      -ms-transform: scale(1.1);
+		          transform: scale(1.1); 
+		}
+		.sk-folding-cube .sk-cube:before {
+		  content: '';
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  background-color: #333;
+		  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+		          animation: sk-foldCubeAngle 2.4s infinite linear both;
+		  -webkit-transform-origin: 100% 100%;
+		      -ms-transform-origin: 100% 100%;
+		          transform-origin: 100% 100%;
+		}
+		.sk-folding-cube .sk-cube2 {
+		  -webkit-transform: scale(1.1) rotateZ(90deg);
+		          transform: scale(1.1) rotateZ(90deg);
+		}
+		.sk-folding-cube .sk-cube3 {
+		  -webkit-transform: scale(1.1) rotateZ(180deg);
+		          transform: scale(1.1) rotateZ(180deg);
+		}
+		.sk-folding-cube .sk-cube4 {
+		  -webkit-transform: scale(1.1) rotateZ(270deg);
+		          transform: scale(1.1) rotateZ(270deg);
+		}
+		.sk-folding-cube .sk-cube2:before {
+		  -webkit-animation-delay: 0.3s;
+		          animation-delay: 0.3s;
+		}
+		.sk-folding-cube .sk-cube3:before {
+		  -webkit-animation-delay: 0.6s;
+		          animation-delay: 0.6s; 
+		}
+		.sk-folding-cube .sk-cube4:before {
+		  -webkit-animation-delay: 0.9s;
+		          animation-delay: 0.9s;
+		}
+		@-webkit-keyframes sk-foldCubeAngle {
+		  0%, 10% {
+		    -webkit-transform: perspective(140px) rotateX(-180deg);
+		            transform: perspective(140px) rotateX(-180deg);
+		    opacity: 0; 
+		  } 25%, 75% {
+		    -webkit-transform: perspective(140px) rotateX(0deg);
+		            transform: perspective(140px) rotateX(0deg);
+		    opacity: 1; 
+		  } 90%, 100% {
+		    -webkit-transform: perspective(140px) rotateY(180deg);
+		            transform: perspective(140px) rotateY(180deg);
+		    opacity: 0; 
+		  } 
+		}
+
+		@keyframes sk-foldCubeAngle {
+		  0%, 10% {
+		    -webkit-transform: perspective(140px) rotateX(-180deg);
+		            transform: perspective(140px) rotateX(-180deg);
+		    opacity: 0; 
+		  } 25%, 75% {
+		    -webkit-transform: perspective(140px) rotateX(0deg);
+		            transform: perspective(140px) rotateX(0deg);
+		    opacity: 1; 
+		  } 90%, 100% {
+		    -webkit-transform: perspective(140px) rotateY(180deg);
+		            transform: perspective(140px) rotateY(180deg);
+		    opacity: 0; 
+		  }
+		}
+		.hero_fullscreen.background_solid{
+			background-color: #FFF;
+			padding-top: 0.2rem;
+		}
+		.btn, .btn-large {
+		    background-color:#eec92c;
+		}
+		a{
+			color: #eec92c;
+		}
+		#main_content {
+		    display: table;
+		    overflow: hidden;
+		    height: 50%;
+		    margin-top: 4%;
+		}
+		.rotate-ticket{
+			-ms-transform: rotate(-10deg); /* IE 9 */
+		    -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+		    transform: rotate(-10deg);
+		}
+		.btn, .btn-large, .btn-flat{
+			margin-bottom: 0px;
+		}
+		.button-container{
+			text-align: center;
+		}
+		.number-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #eec92c;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 55%;
+		    float: right;
+		}
+		.text-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    float: left;
+		    padding: 5px;
+		}
+		.number{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 800;
+			font-size: 40px;
+		}
+		.text{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 400;
+			font-size: 21px;
+		}
+		.text-spacer{
+			height: 22%;
+		}
+		.cell-special .mdl-cell{
+			margin: 0px;
+		}
+		.mdl-cell{
+			margin: 0px;
+		}
+		.spacer{
+			height: 1.43em;
+		}
+		.header-properties{
+			background-color: #fff; 
+			-webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+			-moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+		}
+		.logo{
+			height: 80px;
+		}
+		.hero_fullscreen.background_solid{
+			padding-top: 0px;
+		}
+		.group-one{
+			position: relative;
+			left: 1rem;
+		}
+		.group-two{
+			position: relative;
+		}
+		.group-three{
+			position: relative;
+			right: 4rem;
+		}
+		.header-link{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 400;
+			font-size: 14px;
+			padding: 3px;
+		    border-bottom: 2px solid;
+    		border-bottom-color: #eec92c;
+    		border-bottom-left-radius: 0px;
+    		border-bottom-right-radius: 0px;
+    		float: right;
+		}
+		.spacer-header-menu{
+			height: 2.4em;
+		}
+		.buy-buttom{
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18), 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+		}
+		#cta-button{
+			opacity: 0;
+		}
+		.rotate-ticket{
+			-ms-transform: rotate(-10deg); /* IE 9 */
+		    -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+		    transform: rotate(-10deg);
+		}
+		.product-container{
+			text-align: center;
+		}
+		.text-box-2{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    padding: 5px;
+		    margin: auto;
+		}
+		.text-box-loading{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    padding: 5px;
+		    margin: auto;
+		}
+		.text-box-error{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    padding: 5px;
+		    margin: auto;
+		}
+		.text-box-3{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 90%;
+		    padding: 5px;
+		    margin-left: 4.5%;
+		}
+		.product-spacer{
+			height: 10px;
+		}
+		.image-spacer{
+			height: 75px;
+		}
+		.buy-butom-paypal{
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18), 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+		    border-radius: 1px;
+		}
+		.error-spacer{
+			height: 50px;
+		}
+	</style>
+  </head>
+  
+  <body>
+	<div id="preloader_container">
+	    
+	    <!-- Preloader Screen -->
+		<header class="preloader_header">	 
+	        <div class="preloader_loader">
+	            <svg class="preloader_inner" width="60px" height="60px" viewBox="0 0 80 80">
+	                <path class="preloader_loader_circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+	                <path id="preloader_loader_circle" class="preloader_loader_circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+	            </svg>
+	        </div>
+	    </header>
+	    <!-- //Preloader Screen -->
+	
+	
+		<!-- Fullscreen homepage -->
+		<section class="hero_fullscreen newsletter timer mockups background_solid" style="background: url('https://s3-sa-east-1.amazonaws.com/elements-queromeia/background/background-v3.png') center 30% no-repeat; background-size: cover;"><!-- You can edit classes of this section to control the content that i displayed and backgrounds of this section, more info in documentation. -->
+			
+			<!-- Logo and navigation -->
+			<div class="header-properties">
+			  	<div class="container top_bar" >
+			  		<div class="mdl-grid">
+					  <div class="mdl-cell mdl-cell--4-col">
+					  	<a href="http://queromeia.com/"><img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/logo-line.png" alt="logo" class="logo"/></a>
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	<div class="spacer-header-menu"></div>
+					  	<div class="button-container">
+					  		<div>
+					  			<a id="header-buy" href="http://queromeia.com/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
+					  		</div>
+					  	</div>
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	<div class="spacer-header-menu"></div>
+					  	<div class="button-container">
+					  		<div>
+					  			<a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
+					  		</div>
+					  	</div>
+					  </div>
+					  <div class="mdl-cell mdl-cell--2-col">
+					  	<div class="spacer-header-menu"></div>
+					  	<div class="button-container">
+					  		<div>
+					  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Recuperar código</a>
+					  		</div>
+					  	</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<!-- //Logo and navigation -->
+
+			<!-- Buy content -->
+			<div id="buy-content">
+				<div class="product-spacer"></div>
+
+				<div style="margin:auto; width: 1170px;">
+					<div class="mdl-grid">
+					  <div class="mdl-cell mdl-cell--6-col product-container">
+
+					  	<div class="text-box-2">
+
+						  	<div style="width: 90%; text-align: center; font-size: 19px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 20px;">
+						  		<span style="font-size: 23px; color: #eec92c; font-weight: 700;">Parabéns!</span> Seu pagamento foi efetuado com sucesso!
+						  	</div>
+						  	<br>
+						  	<div style="margin: auto; width: 90%; text-align: center; font-size: 30px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 20px;">
+						  		Este é seu código promocional:
+						  	</div>
+						  	<div id="ticket-code" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
+						  		0000000000
+						  	</div>
+						  	<br>
+						  	<div style="width: 95%; text-align: center; font-size: 19px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400; margin: 20px; margin-bottom: 5px;">
+						  		Agora basta escolher sua sessão. Na etapa de pagamento selecione a opção <span style="font-weight: 700;"> SuperSaver Eletrônico </span> e utilize seu código.
+						  	</div>
+						  	<br>
+							<div style="text-align: center;">
+							  	<a href="http://www.ingresso.com/" target="_blank">
+									<button class="btn waves-effect waves-light buy-buttom" type="submit" name="action" style="width: 50%; height: 60px; font-size: 22px;">
+								  		Resgatar Já!
+									</button>
+							 	</a>
+							</div>
+							<br>
+							<div style="width: 90%; text-align: center; font-size: 14px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300; margin: 20px; margin-top: 0px;">
+								Uma cópia deste código também foi enviada para o e-mail cadastrado na sua conta PayPal.
+							</div>
+					  	</div>
+
+					  	<div class="text-box-loading">
+					  		<div class="loading-spacer" style="height: 15%;"></div>
+						  	<div style="width: 90%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 20px;">
+						  		Seu pagamento está sendo processado.
+						  	</div>
+						  	<div style="width: 90%; text-align: center; font-size: 18px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400; margin: 20px;">
+						  		Isso pode levar alguns minutos.
+						  	</div>
+						  	<br>
+						  	<br>
+							<div class="sk-folding-cube">
+							  <div class="sk-cube1 sk-cube"></div>
+							  <div class="sk-cube2 sk-cube"></div>
+							  <div class="sk-cube4 sk-cube"></div>
+							  <div class="sk-cube3 sk-cube"></div>
+							</div>
+						  	<br>
+							<br>
+							<div style="width: 95%; text-align: center; font-size: 17px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300; margin: 20px; margin-top: 0px;">
+								Se você não quiser esperar, uma cópia deste código será enviada para o e-mail cadastrado na sua conta PayPal.
+							</div>
+					  	</div>
+
+					  	<div class="text-box-error">
+					  		<div class="loading-spacer" style="height: 8%;"></div>
+						  	<div style="width: 90%; text-align: center; font-size: 21px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 800; margin: 20px;">
+						  		Ops! Tivemos um problema com seu pedido.
+						  	</div>
+						  	<div style="width: 90%; text-align: center; font-size: 18px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400; margin: 20px; margin-bottom: 0px;">
+						  		Houve um erro no durante o pagamento ou no processamento do pedido.
+						  	</div>
+						  	<br>
+						  	<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/error.png">
+						  	<br>
+							<br>
+							<div style="width: 95%; text-align: center; font-size: 17px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300; margin: 20px; margin-top: 0px; margin-bottom: 0px;">
+								Caso o pagamento já tenha sido efetuado, não se preocupe, seu dinheiro será reembolsado em até 48 horas.
+							</div>
+							<br>
+							<div style="width: 95%; text-align: center; font-size: 14px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300; margin: 5px; margin-top: 0px;">
+								Caso tenha alguma dúvida, entre em contato conosco:
+							</div>
+							<div style="width: 95%; text-align: center; font-size: 15px; color: #eec92c; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400; margin: 5px; margin-top: 0px;">
+								atendimento@queromeia.com
+							</div>
+					  	</div>
+
+					  </div>
+					  <div class="mdl-cell mdl-cell--5-col product-container">
+					  	<div class="image-spacer"></div>
+					  	<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/tickets.svg" alt="logo" />
+					  </div>
+					</div>
+				</div>
+
+				<div style="margin:auto; width: 1170px; margin-top: 20px;">
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--6-col product-container">
+							<div class="text-box-3">
+								
+							  	<span style=" font-size: 19px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400;">
+							  	* Os vouchers aqui vendidos são válidos apenas para troca no site 
+							  	</span>
+							  	<a href="http://www.ingresso.com/" target="_blank" style=" font-size: 20px; color: #eec92c; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900;">
+							  	Ingresso.com
+							  	</a>
+							  	<span style=" font-size: 19px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 400;">
+							  	. Ingressos válidos por uma semana após a compra.
+							  	</span>
+
+							</div>
+						</div>
+						<div class="mdl-cell mdl-cell--6-col product-container"></div>
+
+					</div>
+				</div>
+			</div>
+			<!-- //Buy content -->
+			
+		</section><!-- //Homepage -->
+		
+		<!-- More info -->
+		<section id="more_info">
+			<div class="container">
+			<!-- Social Icons -->
+			<div class="container">
+				<div class="social_icons_container align-left">
+				  	<div class="social_icons">
+		                <ul>
+		                    <li>
+		                    	<a href="#">
+		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/icon+(1).svg" style="width: 30px;">
+		                    	</a>
+		                    </li>
+		                    <li>
+		                    	<a href="#">
+		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/social-network.svg" style="width: 30px;">
+		                    	</a>
+		                    </li>
+		                </ul>
+				    </div>
+			    </div>
+			</div>
+			<!-- //Social Icons -->
+				<div class="row">
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+					<h3>Como funciona?</h3>
+					<p>Você compra seu voucher no QueroMeia.com. Esse voucher vale como uma entrada comum (não de estudante) no site Ingresso.com.</p>
+					<p>Os vouchers QueroMeia.com são válidos para qualquer pessoa, seja estudante ou não, e custam o mesmo que uma meia entrada !</p>
+					
+					<ul class="icon_list">
+						<li><img src="http://cl.ly/460q121K1W3d/money%20(1).svg" class="icon_small float-left" style="width: 60px; margin: 2px; margin-right: 15px;">
+							<h6>Cartão de crédito MasterCard</h6>
+						</li>
+						<li><img src="http://cl.ly/3a191A3N3c0A/symbols.svg" class="icon_small float-left" style="width: 60px; margin: 2px; margin-right: 15px;">
+							<h6>Cartão de crédito Visa</h6>
+						</li>
+						<li><img src="http://cl.ly/1C1g0V0T1V0f/money%20(2).svg" class="icon_small float-left" style="width: 60px; margin: 2px; margin-right: 15px;">
+							<h6>Pagamento via PayPal</h6>
+						</li>
+					</ul>
+					
+					<p>Compre seus ingressos com Paypal, a melhor e mais segura ferramenta de pagamento online do mundo!</p>	
+					</div>
+					
+					<!-- Contact Form Section -->
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+						<h3>Entre em contato</h3>
+						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">atendimento@queromeia.com</a>.</p>
+					
+					
+						<!-- Contact Form -->
+						<form action="php/contactform.php" id="contact-form" method="post">
+							<div class="contact_form">
+								<div class="input-field">
+					  				<input id="first_name" type="email" name="contact-name">
+					  				<label for="first_name">Nome</label>
+					  			</div>
+					  			<div class="input-field">
+					  				<input id="contact_email" type="email" name="contact-email">
+					  				<label for="contact_email">E-mail</label>
+					  			</div>
+					  			<div class="input-field">
+						  			<textarea class="materialize-textarea" name="contact-message"></textarea>
+						  			<label>Mensagem</label>
+						  		</div>
+				  			</div>	
+				  			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
+						</form>
+						<!-- //Contact Form -->
+					
+					
+						<div id="message"><div id="alert"></div></div><!-- Message container --> 
+					</div>
+					<!-- //Contact Form Section -->
+					
+
+				</div>				
+			</div>
+		</section><!-- //More info -->
+
+	
+	</div><!-- //preloader -->
+
+   
+	<!-- JavaScript plugins comes here -->	
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/jquery-2.1.3.min.js"></script>        <!-- jQuery -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/jquery.easing.min.js"></script>       <!-- jQuery easing -->    
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/jquery.scrollTo.js"></script>         <!-- Scroll to -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/jquery.cycle.all.min.js"></script>    <!-- jQuery cycle -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/jquery.form.js"></script>    		  <!-- jQuery form -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/jquery.maximage.min.js"></script>     <!-- MaxImage background image slideshow -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/materialize.js"></script>     		  <!-- Materialize -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/classie.js"></script>                 <!-- Class helper function -->
+	<script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/pathLoader.js"></script>              <!-- Preloader Loading Animation -->
+	<script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/preloader.js"></script>               <!-- Preloader -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/count_down.js"></script>              <!-- Count Down Timer -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/happy.js"></script>                   <!-- Newsletter form validation -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/happy.methods.js"></script>           <!-- Newsletter form validation -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/retina.js"></script>                  <!-- Retina.js - support for HiDPI Displays -->
+    <script src="https://s3-sa-east-1.amazonaws.com/queromeia/js/main.js"></script>                    <!-- Main Js file -->
+    
+    
+    <!-- Show message after newsletter form submit -->
+	<script type="text/javascript">
+
+	var number_box_width;
+	var text_box_width;
+	var window_height;
+
+	window_height = $(".hero_fullscreen").width();
+	$(".product-spacer").height(window_height/16 + 'px');
+
+	number_box_width = $(".number-box").width();
+	$(".number-box").height(number_box_width + 'px');
+
+	text_box_width = $(".text-box").width();
+	$(".text-box").height(text_box_width/5 + 'px');
+
+    $('document').ready(function()
+        {
+        $('#subscribe-form').ajaxForm( {
+            target: '#preview',
+            success: function() {       
+                  $('#preview').addClass( "show_message" );
+                }
+            });
+        });
+
+    </script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-76869824-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<script type="text/javascript">
+
+	var result = 0;
+	var flag = false;
+	var timer = true;
+	var url = window.location.host;
+	var protocol = window.location.protocol;
+	url_request = protocol + '//' + url + '/result/' + '{{hash_id}}';	
+
+	function request_ajax(){
+
+		$.ajax({
+		    url: url_request,
+		    type: 'get', // This is the default though, you don't actually need to always mention it
+		    success: function(data) {
+		        result = data;
+		        if (result == 400) {
+		        	error_block();
+		        	flag = true;
+		        } else if (result == 401){
+		        	timer = true;
+		        } else if (result == 402){
+		        	error_block();
+		        	flag = true;
+		        } else {
+		        	$("#ticket-code").text(result);
+		        	result_block();
+		        	flag = true;
+		        }
+		    },
+		    failure: function(data) { 
+		        result = 500;
+		    }
+		});
+
+	};
+
+    var text_box_height;
+
+    text_box_height = $(".text-box-2").height();
+    $(".text-box-loading").height(text_box_height);
+    $(".text-box-error").height(text_box_height);
+    $(".text-box-error").css("display","none");
+    $(".text-box-2").css("display","none");
+
+	function error_block(){
+		$(".text-box-loading").css("display","none");
+    	$(".text-box-2").css("display","none");
+    	$(".text-box-error").css("display","block");
+	};
+
+	function loading_block(){
+    	$(".text-box-2").css("display","none");
+    	$(".text-box-error").css("display","none");	
+		$(".text-box-loading").css("display","block");
+	};
+
+	function result_block(){
+    	$(".text-box-error").css("display","none");	
+		$(".text-box-loading").css("display","none");
+    	$(".text-box-2").css("display","block");
+	};
+
+	window.setInterval(function(){
+		if(flag == false){
+			request_ajax();
+		}
+	}, 3000);
+
+		
+	</script>
+    
+  </body>
+	
+</html>
