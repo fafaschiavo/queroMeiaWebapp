@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^result/(?P<hash_id>\w{10})/$', views.result, name='result'),
     url(r'^success/(?P<hash_id>\w{10})/$', views.success, name='success'),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
+    url(r'^contact-form/', views.contact_form, name='contact_form'),
 ]

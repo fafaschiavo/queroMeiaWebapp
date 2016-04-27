@@ -138,6 +138,11 @@ class tickets(models.Model):
 
 class bad_requests(models.Model):
 	created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+	problem_type = models.CharField(max_length=200, default=0)
+	order_id = models.IntegerField(default=0)
 
 	def __created_at__(self):
 		return self.created_at
+
+	def __problem_type__(self):
+		return self.problem_type

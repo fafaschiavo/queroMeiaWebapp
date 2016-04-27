@@ -36,10 +36,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 # PAYPAL_TEST = True
 
+MANDRILL_API_KEY = "PQsvG3uAlMUoboU2fQoGHg"
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+DEFAULT_FROM_EMAIL = 'atendimento@queromeia.com'
+MANDRILL_API_URL = "https://mandrillapp.com/api/1.0"
+
 # Application definition
 
 INSTALLED_APPS = [
     'paypal.standard.ipn',
+    'djrill',
     'cinema.apps.CinemaConfig',
     'django.contrib.admin',
     'django.contrib.auth',

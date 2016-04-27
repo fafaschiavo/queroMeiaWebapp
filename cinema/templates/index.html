@@ -25,6 +25,34 @@
 	<!-- Modernizer and IE specyfic files -->  
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<style type="text/css">
+		.spinner {
+		  width: 40px;
+		  height: 40px;
+		  background-color: #221d1f;
+
+		  margin: 12px auto;
+		  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+		  animation: sk-rotateplane 1.2s infinite ease-in-out;
+		}
+
+		@-webkit-keyframes sk-rotateplane {
+		  0% { -webkit-transform: perspective(120px) }
+		  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+		  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+		}
+
+		@keyframes sk-rotateplane {
+		  0% { 
+		    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+		    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+		  } 50% { 
+		    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+		    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+		  } 100% { 
+		    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+		    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+		  }
+		}
 		.hero_fullscreen.background_solid{
 			background-color: #FFF;
 			padding-top: 0.2rem;
@@ -86,7 +114,7 @@
 			font-size: 21px;
 		}
 		.text-spacer{
-			height: 22%;
+			height: 25%;
 		}
 		.cell-special .mdl-cell{
 			margin: 0px;
@@ -290,7 +318,7 @@
 											<div class="text-box" style="">
 												<div class="text-spacer"></div>
 												<span class="text">
-													Compre seu ingresso no <span style="font-weight: 600; color: #221d1f">QUERO</span><span style="font-weight: 600; color: #eec92c;">MEIA</span><span style="font-weight: 600;">.com</span> pagando meia entrada
+													Compre seu ingresso de cinema no <span style="font-weight: 600; color: #221d1f">QUERO</span><span style="font-weight: 600; color: #eec92c;">MEIA</span><span style="font-weight: 600;">.com</span> pagando meia entrada
 												</span>
 											</div>
 
@@ -414,7 +442,7 @@
 					  	<div class="text-box-2" id="1">
 					  		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/ingresso-red-01.png" style="width: 55%; margin-top: 30px; margin-bottom: 17px;" class="rotate-ticket">
 					  		<br><br>
-					  		<div style="margin: auto; width: 80%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin-bottom: 4px;">
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 800; margin-bottom: 6px;">
 					  			Ingresso QueroMeia RED - Filmes 2D
 					  		</div>
 					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 18px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
@@ -435,10 +463,10 @@
 					  			<span style="font-size: 16px; font-weight: 400;">+ 5,00 (Operação)</span>
 					  		</div>
 					  		<br>
-							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 								<input type="hidden" name="cmd" value="_cart">
 								<input type="hidden" name="business" value="{{email_receiver}}">
-								<input type="hidden" name="lc" value="US">
+								<input type="hidden" name="lc" value="BR">
 								<input type="hidden" name="item_name" value="Ingresso - QueroMeia Red">
 								<input type="hidden" name="item_number" value="1">
 								<input type="hidden" name="amount" value="{{value}}">
@@ -450,11 +478,12 @@
 								<input type="hidden" name="add" value="1">
 								<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
 								<input type="hidden" name="notify_url" value="notify_url">
-							<!-- 	<input type="hidden" name="return" value="{{link}}{{hash_id}}"> -->
+								<input type="hidden" name="return" value="{{hash_id}}">
 								<input type="hidden" name="custom" value="{{hash_id}}">
 								<input class="buy-butom-paypal" type="image" style="width: 50%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 							</form>
+							<div class="spinner" style="display: none"></div>
 							<img style="margin: 10px;" src="https://www.paypal-brasil.com.br/novologocenter/img/paypal/botao-checkout_horizontal_paguecomseguranca_pb.png">
 							<br>
 					  	</div>
@@ -465,7 +494,7 @@
 					  	<div class="text-box-2" id="2">
 					  		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/ingresso-gold-01.png" style="width: 55%; margin-top: 30px; margin-bottom: 17px;" class="rotate-ticket">
 					  		<br><br>
-					  		<div style="margin: auto; width: 80%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin-bottom: 4px;">
+					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 21px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 800; margin-bottom: 6px;">
 					  			Ingresso QueroMeia GOLD - Filmes 3D
 					  		</div>
 					  		<div style="margin: auto; width: 90%; text-align: center; font-size: 18px; color: #221d1f; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300;">
@@ -489,7 +518,7 @@
 							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 								<input type="hidden" name="cmd" value="_cart">
 								<input type="hidden" name="business" value="{{email_receiver}}">
-								<input type="hidden" name="lc" value="US">
+								<input type="hidden" name="lc" value="BR">
 								<input type="hidden" name="item_name" value="Ingresso - QueroMeia Gold">
 								<input type="hidden" name="item_number" value="1">
 								<input type="hidden" name="amount" value="{{value2}}">
@@ -501,11 +530,12 @@
 								<input type="hidden" name="add" value="1">
 								<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
 								<input type="hidden" name="notify_url" value="notify_url">
-								<!-- <input type="hidden" name="return" value="{{link}}{{hash_id}}"> -->
+								<input type="hidden" name="return" value="{{hash_id2}}">
 								<input type="hidden" name="custom" value="{{hash_id2}}">
 								<input class="buy-butom-paypal" type="image" style="width: 50%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 							</form>
+							<div class="spinner" style="display: none"></div>
 							<img style="margin: 10px;" src="https://www.paypal-brasil.com.br/novologocenter/img/paypal/botao-checkout_horizontal_paguecomseguranca_pb.png">
 							<br>
 					  	</div>
@@ -578,12 +608,15 @@
 				    </div>
 			    </div>
 			</div>
+
+			<iframe name="output_frame" src="" id="output_frame"></iframe>
+
 			<!-- //Social Icons -->
 				<div class="row">
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 					<h3>Como funciona?</h3>
-					<p>Você compra seu voucher no QueroMeia.com. Esse voucher vale como uma entrada comum (não de estudante) no site Ingresso.com.</p>
-					<p>Os vouchers QueroMeia.com são válidos para qualquer pessoa, seja estudante ou não, e custam o mesmo que uma meia entrada !</p>
+					<p>Você compra seu voucher no QueroMeia.com. Esse voucher vale como uma entrada comum (não de estudante) no site Ingresso.com para qualquer unidade da rede Cinemark.</p>
+					<p>Os vouchers QueroMeia.com são válidos para qualquer pessoa, seja estudante ou não, e custam <span style="font-weight: 800;">o mesmo que uma meia entrada !</span></p>
 					
 					<ul class="icon_list">
 						<li><img src="http://cl.ly/460q121K1W3d/money%20(1).svg" class="icon_small float-left" style="width: 60px; margin: 2px; margin-right: 15px;">
@@ -603,14 +636,15 @@
 					<!-- Contact Form Section -->
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
 						<h3>Entre em contato</h3>
-						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">atendimento@queromeia.com</a>.</p>
+						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">atendimento@queromeia.com</a></p>
 					
 					
 						<!-- Contact Form -->
-						<form action="php/contactform.php" id="contact-form" method="post">
+						<form action="/contact-form/" id="contact-form" method="post">
+							{% csrf_token %}
 							<div class="contact_form">
 								<div class="input-field">
-					  				<input id="first_name" type="email" name="contact-name">
+					  				<input id="first_name" type="text" name="contact-name">
 					  				<label for="first_name">Nome</label>
 					  			</div>
 					  			<div class="input-field">
@@ -662,30 +696,31 @@
 	<script type="text/javascript">
 
 	var notify_url_fields = jQuery( "[name='notify_url']" );
-	var url_notify;
 	var url = window.location.host;
 	var protocol = window.location.protocol;
+	var url_notify;
 	url_notify = protocol + '//' + url + '/paypal/';
 
 	var i;
 	for (i = 0; i < notify_url_fields.length; ++i) {
 	    notify_url_fields[i].value =url_notify;
 	}
-	// url_notify = 'http://' + url + '/result/' + '{{hash_id}}';
-	// http://127.0.0.1:8000/success/oqldswqm8r/
-	// url_request = protocol + '//' + url + '/success/' + '{{hash_id}}';	
 
-	// window.location.replace("http://stackoverflow.com");	
+	var return_url_fields = jQuery( "[name='return']" );
+	var url_return;
+	var hash_id_temp;
+	url_return = protocol + '//' + url + '/success/';
+	for (i = 0; i < return_url_fields.length; ++i) {
+		hash_id_temp = return_url_fields[i].value;
+	    return_url_fields[i].value = url_return + hash_id_temp;
+	}
 
 	var url = window.location.host;
 	var protocol = window.location.protocol;
 	$("input").click(function() {
 		var element = $(this).closest("div");
-		if (element[0].id == 1){
-			setTimeout(function(){ window.location.href = protocol + '//' + url + '/success/' + '{{hash_id}}'; }, 3000);
-		} else {
-			setTimeout(function(){ window.location.href = protocol + '//' + url + '/success/' + '{{hash_id2}}'; }, 3000);
-		}
+		element.find("form").css("display", "none");
+		element.find(".spinner").css("display", "block");
 	});
 
 	var number_box_width
@@ -721,6 +756,8 @@
 
 			number_box_width = $(".number-box").width();
 			$(".number-box").height(number_box_width + 'px');
+
+			$(".text-spacer").height('21%');
 
 			text_box_width = $(".text-box").width();
 			$(".text-box").height(text_box_width/5 + 'px');

@@ -9,6 +9,8 @@ from paypal.standard.ipn.signals import payment_was_flagged
 from paypal.standard.ipn.signals import payment_was_successful
 from paypal.standard.ipn.signals import invalid_ipn_received
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMessage
 from django.conf import settings
 import string
 import random
@@ -124,11 +126,30 @@ def consume_ticket_code(hash_id):
 
 	return code
 
+def mandrill_success(email, code):
+	msg = EmailMessage(subject="Seu ingresso chegou!", from_email="QueroMeia <atendimento@queromeia.com>", to=[email])
+	msg.template_name = "success"
+	msg.global_merge_vars = {'CODE': str(code)}
+	msg.send()
+	return None
+
+def mandrill_bad_request(error, id):
+	msg = EmailMessage(subject="Bad Request QueroMeia", from_email="QueroMeia <atendimento@queromeia.com>", to=["fayschiavo@gmail.com"])
+	msg.template_name = "bad-request"
+	msg.global_merge_vars = {'ERROR': error, 'ID': id}
+	msg.send()
+	return None
+
+def bad_request_tickets_not_available(order_id):
+	order_id_request = order_id
+	bad_request = bad_requests(problem_type = 'Ticket not available', order_id = order_id_request)
+	bad_request.save()
+	mandrill_bad_request(bad_request.problem_type, bad_request.id)
+	return None
+
 # Create your views here.
 
 def index(request):
-    link = 'https://kzljcejsnj.localtunnel.me'
-
     product1 = products.objects.get(id = settings.PRODUCT_ID_1)
     value1 = product1.price
 
@@ -138,7 +159,7 @@ def index(request):
     hash_id = create_new_order(settings.PRODUCT_ID_1)
     hash_id2 = create_new_order(settings.PRODUCT_ID_2)
 
-    context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'link': link, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2}
+    context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2}
     return render(request, "index.html", context)
 
 def success(request, hash_id):
@@ -153,20 +174,13 @@ def result(request, hash_id):
     except:
     	return HttpResponse(400)
 
-    #if this order already consumed a ticket, return the ticket
-    try:
-    	ticket = tickets.objects.get(order_id = order.id)
-    	return HttpResponse(ticket.code)
-    except:
-    	pass
-
     #if the order was not paid return - 401
     #if there is no available  ticket returne - 402
     #if everything is fine return the ticket code
     try:
     	if order.status == 1:
-    		code = consume_ticket_code(hash_id)
-    		return HttpResponse(code)
+    		ticket = tickets.objects.get(order_id = order.id)
+    		return HttpResponse(ticket.code)
     	else:
     		return HttpResponse(401)
     except:
@@ -175,16 +189,28 @@ def result(request, hash_id):
 @csrf_exempt
 def show_me_the_money(sender, **kwargs):
     ipn_obj = sender
+    print 'flag1'
     if ipn_obj.payment_status == ST_PP_COMPLETED:
+    	print 'flag2'
+    	print 'status' + ipn_obj.payment_status
+    	print 'hash_id' + ipn_obj.custom
+    	print 'amount' + str(ipn_obj.mc_gross)
     	order = orders.objects.get(hash_id = ipn_obj.custom)
     	if order.hash_id == ipn_obj.custom and order.amount == ipn_obj.mc_gross and settings.EMAIL_PAYPAL_ACCOUNT == ipn_obj.receiver_email:
+    		print 'flag3'
     		try:
     			member_exist = members.objects.get(email = ipn_obj.payer_email)
     			member_id = member_exist.id
     		except:
     			member_id = create_new_member(ipn_obj)
-    		
     		update_order_success_payment(ipn_obj, member_id)
+    		try:
+    			print 'flag4'
+    			code = consume_ticket_code(order.hash_id)
+    			mandrill_success(ipn_obj.payer_email, code)
+    		except:
+    			bad_request_tickets_not_available(order.id)
+
         # WARNING !
         # Check that the receiver email is the same we previously
         # set on the business field request. (The user could tamper
@@ -207,8 +233,14 @@ def show_me_the_money(sender, **kwargs):
 
 @csrf_exempt
 def show_me_the_money_invalid(sender, **kwargs):
-    print 'flag6'
     return None
+
+def contact_form(request):
+	print request.POST['contact-name']
+	print request.POST
+	msg = EmailMultiAlternatives(subject="Contato - Form - <" + request.POST['contact-email'] , body=request.POST['contact-message'] + '      -      ' + request.POST['contact-name'] + ' - ' + request.POST['contact-email'], from_email=request.POST['contact-name'] + "<atendimento@queromeia.com>",to=["atendimento@queromeia.com"])
+	msg.send()
+	return HttpResponse(200)
 
 payment_was_successful.connect(show_me_the_money)
 invalid_ipn_received.connect(show_me_the_money_invalid)
