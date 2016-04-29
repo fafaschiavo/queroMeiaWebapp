@@ -223,6 +223,13 @@ def codes_get(request):
 		pass
 	return render(request, "message-sent.html", context)
 
+def how_it_works(request):
+	context = {}
+	return render(request, "como-funciona.html", context)
+
+def desktop_only(request):
+	return HttpResponse('Ops! Este site esta disponivel apenas para Desktops!')
+
 @csrf_exempt
 def show_me_the_money(sender, **kwargs):
     ipn_obj = sender

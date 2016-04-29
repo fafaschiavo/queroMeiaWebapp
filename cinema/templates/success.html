@@ -149,6 +149,48 @@
 		    width: 55%;
 		    float: right;
 		}
+		.title-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #eec92c;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    float: none;
+		    margin: auto;
+		    width: 100%;
+		    height: 60px;
+		}
+		.title-font{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 800;
+			font-size: 35px;
+		}
+		.instructions-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    border-top-width: 0px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 100%;
+		    float: left;
+		    padding: 5px;
+		}
+		.text-instructions{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 600;
+			font-size: 26px;
+		}
+		.code-spacer{
+			height: 14px;
+		}
+		.instructions-spacer{
+			height: 30px;
+		}
 		.text-box{
 		    border-style: solid;
 		    border-color: #221d1f;
@@ -173,7 +215,7 @@
 			font-size: 21px;
 		}
 		.text-spacer{
-			height: 22%;
+			height: 25%;
 		}
 		.cell-special .mdl-cell{
 			margin: 0px;
@@ -211,7 +253,7 @@
 			color: #221d1f;
 			font-family: 'Roboto','Helvetica','Arial',sans-serif;
 			font-weight: 400;
-			font-size: 0.7rem;
+			font-size: 0.8rem;
 			padding: 3px;
 			padding-bottom: 0px;
 		}
@@ -254,28 +296,6 @@
 		    padding: 5px;
 		    margin: auto;
 		}
-		.text-box-loading{
-		    border-style: solid;
-		    border-color: #221d1f;
-		    border-width: 5px;
-		    text-align: center;
-		    background-color: #f3f3f3;
-		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		    width: 90%;
-		    padding: 5px;
-		    margin: auto;
-		}
-		.text-box-error{
-		    border-style: solid;
-		    border-color: #221d1f;
-		    border-width: 5px;
-		    text-align: center;
-		    background-color: #f3f3f3;
-		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		    width: 90%;
-		    padding: 5px;
-		    margin: auto;
-		}
 		.text-box-3{
 		    border-style: solid;
 		    border-color: #221d1f;
@@ -290,15 +310,36 @@
 		.product-spacer{
 			height: 10px;
 		}
-		.image-spacer{
-			height: 75px;
-		}
 		.buy-butom-paypal{
 			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18), 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 		    border-radius: 1px;
 		}
 		.error-spacer{
 			height: 50px;
+		}
+		.social-icon{
+			width: 30px;
+			border-radius: 6px;
+		}
+		.input-label{
+			border-bottom: 1px solid;
+			border-color: #58595B;
+		}
+		.active{
+			color: #eec92c !important;
+		}
+		.mdl-textfield__label::after{
+			background-color: #eec92c;
+		}
+		@-moz-document url-prefix(){
+			#main_content{
+				margin-top: 2rem;
+			}
+			.mockup img{
+				width: 26rem;
+				margin-top: 5rem;
+				right: 7rem;
+			}
 		}
 	</style>
   </head>
@@ -335,7 +376,7 @@
 						  	<div class="spacer-header-menu"></div>
 						  	<div class="button-container">
 						  		<div class="header-link-menu">
-						  			<a id="header-buy" href="http://queromeia.com/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
+						  			<a id="header-buy" href="/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
 						  		</div>
 						  		<div class="header-line-menu"></div>
 						  	</div>
@@ -362,7 +403,7 @@
 						  	<div class="spacer-header-menu"></div>
 						  	<div>
 						  		<div class="header-link-menu">
-						  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
+						  			<a href="/how-it-works/" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Como funciona</a>
 						  		</div>
 						  		<div class="header-line-menu"></div>
 						  	</div>
@@ -461,10 +502,38 @@
 					  	</div>
 
 					  </div>
-					  <div class="mdl-cell mdl-cell--5-col product-container">
-					  	<div class="image-spacer"></div>
-					  	<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/tickets.svg" alt="logo" />
+
+					  <div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-grid">
+						  <div class="mdl-cell mdl-cell--1-col"></div>
+						  <div class="mdl-cell mdl-cell--10-col" style="text-align: center;">
+
+							<div class="title-box">
+								<div class="code-spacer"></div>
+								<div class="title-font">
+									Como resgatar?
+								</div>
+							</div>
+							<div class="instructions-box">
+								<br><br>
+								<div class="text">
+									<div class="text" style="font-size: 16px;">
+										<div>1. Acesse o site <a href="http://www.ingresso.com/">Ingresso.com</a>, escolha seu filme, dia e horário</div>
+										<br>
+										<div>2. Na etapa de compra do ingresso selecione a opção "Super Saver Eletrônico"</div>
+										<br>
+										<div>3. Utilize seu código QueroMeia e pronto! Seu ingresso está comprado!</div>
+										<br>
+										<div>4. Ah! E o mais imortante: <span style="font-weight: 700;">Divirta-se!</span></div>
+									</div>
+									<br><br>
+								</div>
+							</div>  
+						  <div class="mdl-cell mdl-cell--1-col"></div>
+						</div>
 					  </div>
+					</div>
+
 					</div>
 				</div>
 

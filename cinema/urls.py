@@ -4,6 +4,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^sorry-oly-desktop/$', views.desktop_only, name='desktop_only'),
+    url(r'^how-it-works/$', views.how_it_works, name='how_it_works'),
     url(r'^my-codes/$', views.codes, name='codes'),
     url(r'^my-codes-get/$', views.codes_get, name='codes_get'),
     url(r'^result/(?P<hash_id>\w{10})/$', views.result, name='result'),
