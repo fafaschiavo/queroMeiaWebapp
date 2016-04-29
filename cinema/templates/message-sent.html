@@ -21,10 +21,41 @@
 	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/rapid-icons.css" rel="stylesheet" media="screen">                            <!-- James Framework - ICONS -->
 	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/js_styles/jquery.maximage.min.css" rel="stylesheet" media="screen">          <!-- MaxImage background image slideshow -->
 	<link href="https://s3-sa-east-1.amazonaws.com/queromeia/responsivity.css" rel="stylesheet" media="screen">                           <!-- Responsive Fixes -->
-	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
 	<!-- Modernizer and IE specyfic files -->  
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<style type="text/css">
+		.spinner {
+		  width: 40px;
+		  height: 40px;
+		  background-color: #221d1f;
+
+		  margin: 12px auto;
+		  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+		  animation: sk-rotateplane 1.2s infinite ease-in-out;
+		}
+
+		@-webkit-keyframes sk-rotateplane {
+		  0% { -webkit-transform: perspective(120px) }
+		  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+		  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+		}
+
+		@keyframes sk-rotateplane {
+		  0% { 
+		    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+		    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+		  } 50% { 
+		    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+		    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+		  } 100% { 
+		    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+		    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+		  }
+		}
 		.hero_fullscreen.background_solid{
 			background-color: #FFF;
 			padding-top: 0.2rem;
@@ -62,6 +93,48 @@
 		    width: 55%;
 		    float: right;
 		}
+		.title-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    text-align: center;
+		    background-color: #eec92c;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    float: none;
+		    margin: auto;
+		    width: 100%;
+		    height: 60px;
+		}
+		.title-font{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 800;
+			font-size: 35px;
+		}
+		.instructions-box{
+		    border-style: solid;
+		    border-color: #221d1f;
+		    border-width: 5px;
+		    border-top-width: 0px;
+		    text-align: center;
+		    background-color: #f3f3f3;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    width: 100%;
+		    float: left;
+		    padding: 5px;
+		}
+		.text-instructions{
+			color: #221d1f;
+			font-family: 'Roboto','Helvetica','Arial',sans-serif;
+			font-weight: 600;
+			font-size: 26px;
+		}
+		.code-spacer{
+			height: 14px;
+		}
+		.instructions-spacer{
+			height: 30px;
+		}
 		.text-box{
 		    border-style: solid;
 		    border-color: #221d1f;
@@ -86,7 +159,7 @@
 			font-size: 21px;
 		}
 		.text-spacer{
-			height: 22%;
+			height: 25%;
 		}
 		.cell-special .mdl-cell{
 			margin: 0px;
@@ -124,13 +197,20 @@
 			color: #221d1f;
 			font-family: 'Roboto','Helvetica','Arial',sans-serif;
 			font-weight: 400;
-			font-size: 14px;
+			font-size: 0.7rem;
 			padding: 3px;
-		    border-bottom: 2px solid;
+			padding-bottom: 0px;
+		}
+		.header-link-menu{
+			text-align: center;
+		}
+		.header-line-menu{
+			border-bottom: 2px solid;
     		border-bottom-color: #eec92c;
     		border-bottom-left-radius: 0px;
     		border-bottom-right-radius: 0px;
-    		float: right;
+    		width: 88%;
+			margin: auto;
 		}
 		.spacer-header-menu{
 			height: 2.4em;
@@ -174,15 +254,36 @@
 		.product-spacer{
 			height: 10px;
 		}
-		.error-spacer{
-			height: 50px;
-		}
-		.image-spacer{
-			height: 75px;
-		}
 		.buy-butom-paypal{
 			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18), 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 		    border-radius: 1px;
+		}
+		.error-spacer{
+			height: 50px;
+		}
+		.social-icon{
+			width: 30px;
+			border-radius: 6px;
+		}
+		.input-label{
+			border-bottom: 1px solid;
+			border-color: #58595B;
+		}
+		.active{
+			color: #eec92c !important;
+		}
+		.mdl-textfield__label::after{
+			background-color: #eec92c;
+		}
+		@-moz-document url-prefix(){
+			#main_content{
+				margin-top: 2rem;
+			}
+			.mockup img{
+				width: 26rem;
+				margin-top: 5rem;
+				right: 7rem;
+			}
 		}
 	</style>
   </head>
@@ -208,72 +309,99 @@
 			<!-- Logo and navigation -->
 			<div class="header-properties">
 			  	<div class="container top_bar" >
-			  		<div class="mdl-grid">
+			  		<div class="mdl-grid" style="padding-bottom: 4px;">
 					  <div class="mdl-cell mdl-cell--4-col">
-					  	<a href="http://queromeia.com/"><img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/logo-line.png" alt="logo" class="logo"/></a>
+					  	<a href="{% url 'index' %}"><img style="margin-top: 2%;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/logo-line.png" alt="logo" class="logo"/></a>
 					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	
-					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	<div class="spacer-header-menu"></div>
-					  	<div class="button-container">
-					  		<div>
-					  			<a id="header-buy" href="http://queromeia.com/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
-					  		</div>
+
+					  <div class="mdl-cell mdl-cell--8-col">
+					  	<div class="mdl-grid">
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div class="button-container">
+						  		<div class="header-link-menu">
+						  			<a id="header-buy" href="http://queromeia.com/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div class="button-container">
+						  		<div class="header-link-menu">
+						  			<a href="/my-codes/" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Esqueceu seu código?</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div class="button-container">
+						  		<div class="header-link-menu">
+						  			<a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light header-link">Contato</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div>
+						  		<div class="header-link-menu">
+						  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
 					  	</div>
 					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	<div class="spacer-header-menu"></div>
-					  	<div class="button-container">
-					  		<div>
-					  			<a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
-					  		</div>
-					  	</div>
-					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	<div class="spacer-header-menu"></div>
-					  	<div class="button-container">
-					  		<div>
-					  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Recuperar código</a>
-					  		</div>
-					  	</div>
-					  </div>
+
 					</div>
 				</div>
 			</div>
 			<!-- //Logo and navigation -->
+			
+			<!-- Main content -->
+			<div id="home-content">
+			  	<div class="container align-left" id="main_content" style="padding-left: 6px;">
+					<div class="content_container row" style="width: 100%">
+					
+						<div style="background-repeat: no-repeat;">
+						</div>
+						<div class="mdl-grid" style="margin-top: 8rem;">
+						  <div class="mdl-cell mdl-cell--2-col"></div>
+						  <div class="mdl-cell mdl-cell--8-col">
+							<div class="mdl-grid">
+							  <div class="mdl-cell mdl-cell--1-col"></div>
+							  <div class="mdl-cell mdl-cell--10-col" style="text-align: center;">
 
-			<!-- Buy content -->
-			<div id="buy-content">
-				<div class="error-spacer"></div>
-
-				<div style="margin:auto; width: 1170px;">
-					<div class="mdl-grid">
-					  <div class="mdl-cell mdl-cell--3-col product-container"></div>
-					  <div class="mdl-cell mdl-cell--6-col product-container">
-
-					  	<div class="text-box-2">
-					  	<div style="font-size: 50px; color: #eec92c; font-weight: 700;  font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 30px;">Ops!</div>
-						  	<div style="width: 90%; text-align: center; font-size: 20px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 20px;">
-						  		 Estamos passando por problemas técnicos, mas estaremos de volta em breve!
-						  	</div>
-						  	<br>
-							<br>
-							<div style="width: 90%; text-align: center; font-size: 19px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 300; margin: 20px; margin-top: 0px;">
-								Se você recebeu está mensagem após efetuar uma compra, não se preocupe. Seu código promocional será automaticamente enviado para o e-mail cadastrado na sua conta Paypal.
+								<div class="title-box">
+									<div class="code-spacer"></div>
+									<div class="title-font">
+										Sucesso!
+									</div>
+								</div>
+								<div class="instructions-box">
+									<div class="instructions-spacer"></div>
+									<div class="text">
+										<div class="text-instructions">Sua mensagem foi enviada com sucesso!</div>
+										<br><br>
+										<a href="/">
+											<button class="btn waves-effect waves-light"style="color: #221d1f; margin-bottom: 15px;">Voltar</button>
+										</a>
+										<br><br>
+									</div>
+								</div>
+							  </div>
+							  <div class="mdl-cell mdl-cell--1-col"></div>
 							</div>
-					  	</div>
-					  	<div class="error-spacer"></div>
-					  	<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/error-image.png">
-					  </div>
-
-					  <div class="mdl-cell mdl-cell--3-col product-container"></div>
-					</div>
-				</div>
-
+						  </div>
+						  <div class="mdl-cell mdl-cell--2-col product-container"></div>
+						</div>
+				
+					</div>		
+				</div>  
 			</div>
-			<!-- //Buy content -->
+			<!-- //Main content -->
 			
 		</section><!-- //Homepage -->
 		
@@ -287,24 +415,25 @@
 		                <ul>
 		                    <li>
 		                    	<a href="#">
-		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/icon+(1).svg" style="width: 30px;">
+		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/icon+(1).svg" class="social-icon">
 		                    	</a>
 		                    </li>
 		                    <li>
 		                    	<a href="#">
-		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/social-network.svg" style="width: 30px;">
+		                    		<img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/social-network.svg"  class="social-icon">
 		                    	</a>
 		                    </li>
 		                </ul>
 				    </div>
 			    </div>
 			</div>
+
 			<!-- //Social Icons -->
 				<div class="row">
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 					<h3>Como funciona?</h3>
-					<p>Você compra seu voucher no QueroMeia.com. Esse voucher vale como uma entrada comum (não de estudante) no site Ingresso.com.</p>
-					<p>Os vouchers QueroMeia.com são válidos para qualquer pessoa, seja estudante ou não, e custam o mesmo que uma meia entrada !</p>
+					<p>Você compra seu voucher no QueroMeia.com. Esse voucher vale como uma entrada comum (não de estudante) no site Ingresso.com para qualquer unidade da rede Cinemark.</p>
+					<p>Os vouchers QueroMeia.com são válidos para qualquer pessoa, seja estudante ou não, e custam <span style="font-weight: 800;">o mesmo que uma meia entrada !</span></p>
 					
 					<ul class="icon_list">
 						<li><img src="http://cl.ly/460q121K1W3d/money%20(1).svg" class="icon_small float-left" style="width: 60px; margin: 2px; margin-right: 15px;">
@@ -324,14 +453,15 @@
 					<!-- Contact Form Section -->
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
 						<h3>Entre em contato</h3>
-						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">atendimento@queromeia.com</a>.</p>
+						<p>Você pode utilizar o formulário abaixo ou nos contactar via e-mail em: <a href="#">atendimento@queromeia.com</a></p>
 					
 					
 						<!-- Contact Form -->
-						<form action="php/contactform.php" id="contact-form" method="post">
+						<form action="/contact-form/" id="contact-form" method="post">
+							{% csrf_token %}
 							<div class="contact_form">
 								<div class="input-field">
-					  				<input id="first_name" type="email" name="contact-name">
+					  				<input id="first_name" type="text" name="contact-name">
 					  				<label for="first_name">Nome</label>
 					  			</div>
 					  			<div class="input-field">
@@ -343,7 +473,7 @@
 						  			<label>Mensagem</label>
 						  		</div>
 				  			</div>	
-				  			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
+				  			<button class="btn waves-effect waves-light" type="submit" name="action" id="contact-form-button">Enviar</button>
 						</form>
 						<!-- //Contact Form -->
 					
@@ -382,19 +512,6 @@
     <!-- Show message after newsletter form submit -->
 	<script type="text/javascript">
 
-	var number_box_width
-	var text_box_width
-	var window_height
-
-	window_height = $(".hero_fullscreen").width();
-	$(".product-spacer").height(window_height/16 + 'px');
-
-	number_box_width = $(".number-box").width();
-	$(".number-box").height(number_box_width + 'px');
-
-	text_box_width = $(".text-box").width();
-	$(".text-box").height(text_box_width/5 + 'px');
-
     $('document').ready(function()
         {
         $('#subscribe-form').ajaxForm( {
@@ -404,6 +521,18 @@
                 }
             });
         });
+
+	function enable_buttom() {
+		$(".buy-buttom").css("z-index", "1000");
+		$("#cta-button").fadeTo(200, 1);
+	};
+	setTimeout(enable_buttom, 4500);
+
+	$("#contact-form-button").click(function(){
+		var button = this;
+		button.disabled = true;
+		$("#contact-form-button").text("Sucesso");
+	});
 
     </script>
 

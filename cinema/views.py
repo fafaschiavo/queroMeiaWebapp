@@ -126,9 +126,24 @@ def consume_ticket_code(hash_id):
 
 	return code
 
+def verify_ticket_availability(id):
+	available_tickets = tickets.objects.filter(product_id = id).exclude(is_used = 1)
+	is_available = len(available_tickets)
+	if is_available > 0:
+		return True
+	else:
+		return False
+
 def mandrill_success(email, code):
 	msg = EmailMessage(subject="Seu ingresso chegou!", from_email="QueroMeia <atendimento@queromeia.com>", to=[email])
 	msg.template_name = "success"
+	msg.global_merge_vars = {'CODE': str(code)}
+	msg.send()
+	return None
+
+def mandrill_recovery(email, code):
+	msg = EmailMessage(subject="Seu ingresso voltou!", from_email="QueroMeia <atendimento@queromeia.com>", to=[email])
+	msg.template_name = "recovery"
 	msg.global_merge_vars = {'CODE': str(code)}
 	msg.send()
 	return None
@@ -139,6 +154,7 @@ def mandrill_bad_request(error, id):
 	msg.global_merge_vars = {'ERROR': error, 'ID': id}
 	msg.send()
 	return None
+
 
 def bad_request_tickets_not_available(order_id):
 	order_id_request = order_id
@@ -152,21 +168,25 @@ def bad_request_tickets_not_available(order_id):
 def index(request):
     product1 = products.objects.get(id = settings.PRODUCT_ID_1)
     value1 = product1.price
+    availability1 = verify_ticket_availability(product1.id)
 
     product2 = products.objects.get(id = settings.PRODUCT_ID_2)
     value2 = product2.price
+    availability2 = verify_ticket_availability(product2.id)
 
     hash_id = create_new_order(settings.PRODUCT_ID_1)
     hash_id2 = create_new_order(settings.PRODUCT_ID_2)
 
-    context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2}
+    context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2, 'availability1': availability1, 'availability2': availability2}
     return render(request, "index.html", context)
 
+@csrf_exempt
 def success(request, hash_id):
     hash_id_request = hash_id
     context = {'hash_id': hash_id_request}
     return render(request, "success.html", context)
 
+@csrf_exempt
 def result(request, hash_id):
 	#verify the order exists
     try:
@@ -186,6 +206,23 @@ def result(request, hash_id):
     except:
     	return HttpResponse(402)
 
+def codes(request):
+	context = {}
+	return render(request, "codes.html", context)
+
+def codes_get(request):
+	context = {}
+	email = request.POST['email-form']
+	try:
+		member = members.objects.get(email = email)
+		member_id = member.id
+		order = orders.objects.filter(member_id = member_id).order_by('-created_at')[0]
+		ticket = tickets.objects.get(order_id = order.id)
+		mandrill_recovery(email, ticket.code)
+	except:
+		pass
+	return render(request, "message-sent.html", context)
+
 @csrf_exempt
 def show_me_the_money(sender, **kwargs):
     ipn_obj = sender
@@ -196,7 +233,7 @@ def show_me_the_money(sender, **kwargs):
     	print 'hash_id' + ipn_obj.custom
     	print 'amount' + str(ipn_obj.mc_gross)
     	order = orders.objects.get(hash_id = ipn_obj.custom)
-    	if order.hash_id == ipn_obj.custom and order.amount == ipn_obj.mc_gross and settings.EMAIL_PAYPAL_ACCOUNT == ipn_obj.receiver_email:
+    	if order.hash_id == ipn_obj.custom and order.amount <= ipn_obj.mc_gross and settings.EMAIL_PAYPAL_ACCOUNT == ipn_obj.receiver_email:
     		print 'flag3'
     		try:
     			member_exist = members.objects.get(email = ipn_obj.payer_email)
@@ -236,8 +273,7 @@ def show_me_the_money_invalid(sender, **kwargs):
     return None
 
 def contact_form(request):
-	print request.POST['contact-name']
-	print request.POST
+	context = {}
 	msg = EmailMultiAlternatives(subject="Contato - Form - <" + request.POST['contact-email'] , body=request.POST['contact-message'] + '      -      ' + request.POST['contact-name'] + ' - ' + request.POST['contact-email'], from_email=request.POST['contact-name'] + "<atendimento@queromeia.com>",to=["atendimento@queromeia.com"])
 	msg.send()
 	return HttpResponse(200)

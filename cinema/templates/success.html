@@ -211,13 +211,20 @@
 			color: #221d1f;
 			font-family: 'Roboto','Helvetica','Arial',sans-serif;
 			font-weight: 400;
-			font-size: 14px;
+			font-size: 0.7rem;
 			padding: 3px;
-		    border-bottom: 2px solid;
+			padding-bottom: 0px;
+		}
+		.header-link-menu{
+			text-align: center;
+		}
+		.header-line-menu{
+			border-bottom: 2px solid;
     		border-bottom-color: #eec92c;
     		border-bottom-left-radius: 0px;
     		border-bottom-right-radius: 0px;
-    		float: right;
+    		width: 88%;
+			margin: auto;
 		}
 		.spacer-header-menu{
 			height: 2.4em;
@@ -317,37 +324,52 @@
 			<!-- Logo and navigation -->
 			<div class="header-properties">
 			  	<div class="container top_bar" >
-			  		<div class="mdl-grid">
+			  		<div class="mdl-grid" style="padding-bottom: 4px;">
 					  <div class="mdl-cell mdl-cell--4-col">
-					  	<a href="http://queromeia.com/"><img src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/logo-line.png" alt="logo" class="logo"/></a>
+					  	<a href="{% url 'index' %}"><img style="margin-top: 2%;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/logo/logo-line.png" alt="logo" class="logo"/></a>
 					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	
-					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	<div class="spacer-header-menu"></div>
-					  	<div class="button-container">
-					  		<div>
-					  			<a id="header-buy" href="http://queromeia.com/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
-					  		</div>
+
+					  <div class="mdl-cell mdl-cell--8-col">
+					  	<div class="mdl-grid">
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div class="button-container">
+						  		<div class="header-link-menu">
+						  			<a id="header-buy" href="http://queromeia.com/" class="btn-flat waves-effect waves-light header-link">Comprar</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div class="button-container">
+						  		<div class="header-link-menu">
+						  			<a href="/my-codes/" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Esqueceu seu código?</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div class="button-container">
+						  		<div class="header-link-menu">
+						  			<a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light header-link">Contato</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
+						  <div class="mdl-cell mdl-cell--3-col">
+						  	<div class="spacer-header-menu"></div>
+						  	<div>
+						  		<div class="header-link-menu">
+						  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
+						  		</div>
+						  		<div class="header-line-menu"></div>
+						  	</div>
+						  </div>
 					  	</div>
 					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	<div class="spacer-header-menu"></div>
-					  	<div class="button-container">
-					  		<div>
-					  			<a href="#more_info" id="more_info_btn" class="btn-flat waves-effect waves-light header-link">Mais informações</a>
-					  		</div>
-					  	</div>
-					  </div>
-					  <div class="mdl-cell mdl-cell--2-col">
-					  	<div class="spacer-header-menu"></div>
-					  	<div class="button-container">
-					  		<div>
-					  			<a href="#more_info2" id="more_info_btn2" class="btn-flat waves-effect waves-light header-link">Recuperar código</a>
-					  		</div>
-					  	</div>
-					  </div>
+
 					</div>
 				</div>
 			</div>
@@ -519,14 +541,15 @@
 					<!-- Contact Form Section -->
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
 						<h3>Entre em contato</h3>
-						<p>Você pode utilar o formulário abaixo ou nos contactar via e-mail em: <a href="contato@queromeia.com">atendimento@queromeia.com</a></p>
+						<p>Você pode utilizar o formulário abaixo ou nos contactar via e-mail em: <a href="#">atendimento@queromeia.com</a></p>
 					
 					
 						<!-- Contact Form -->
-						<form action="php/contactform.php" id="contact-form" method="post">
+						<form action="/contact-form/" id="contact-form" method="post">
+							{% csrf_token %}
 							<div class="contact_form">
 								<div class="input-field">
-					  				<input id="first_name" type="email" name="contact-name">
+					  				<input id="first_name" type="text" name="contact-name">
 					  				<label for="first_name">Nome</label>
 					  			</div>
 					  			<div class="input-field">
@@ -538,7 +561,7 @@
 						  			<label>Mensagem</label>
 						  		</div>
 				  			</div>	
-				  			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
+				  			<button class="btn waves-effect waves-light" type="submit" name="action" id="contact-form-button">Enviar</button>
 						</form>
 						<!-- //Contact Form -->
 					
@@ -682,7 +705,12 @@
 		}
 	}, 3000);
 
-		
+	$("#contact-form-button").click(function(){
+		var button = this;
+		button.disabled = true;
+		$("#contact-form-button").text("Sucesso");
+	});
+
 	</script>
     
   </body>
