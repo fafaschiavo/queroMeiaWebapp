@@ -59,6 +59,7 @@ class orders(models.Model):
 	pending_reason = models.CharField(max_length=200, default='not paid yet')
 	quantity = models.IntegerField(default=1)
 	product_id = models.IntegerField(default=0)
+	partner_hash_id = models.CharField(max_length=200, default='')
 
 	def __hash_id__(self):
 		return self.hash_id
@@ -98,6 +99,9 @@ class orders(models.Model):
 
 	def __product_id__(self):
 		return self.product_id
+
+	def __partner_hash_id__(self):
+		return self.partner_hash_id
 
 class products(models.Model):
 	name = models.CharField(max_length=200)

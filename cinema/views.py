@@ -20,7 +20,7 @@ import random
 def hash_id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
 
-def create_new_order(product_id):
+def create_new_order(product_id, partner_hash_id = ''):
 
 	product = products.objects.get(id = product_id)
 	value = product.price
@@ -34,7 +34,7 @@ def create_new_order(product_id):
 		except:
 			verify_existence = False
 
-	new_order = orders(hash_id = new_hash_id, amount = value, product_id = product_id)
+	new_order = orders(hash_id = new_hash_id, amount = value, product_id = product_id, partner_hash_id = partner_hash_id)
 	new_order.save()
 
 	return new_hash_id
@@ -176,6 +176,21 @@ def index(request):
 
     hash_id = create_new_order(settings.PRODUCT_ID_1)
     hash_id2 = create_new_order(settings.PRODUCT_ID_2)
+
+    context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2, 'availability1': availability1, 'availability2': availability2}
+    return render(request, "index.html", context)
+
+def index_partner(request, partner_hash_id):
+    product1 = products.objects.get(id = settings.PRODUCT_ID_1)
+    value1 = product1.price
+    availability1 = verify_ticket_availability(product1.id)
+
+    product2 = products.objects.get(id = settings.PRODUCT_ID_2)
+    value2 = product2.price
+    availability2 = verify_ticket_availability(product2.id)
+
+    hash_id = create_new_order(settings.PRODUCT_ID_1, partner_hash_id)
+    hash_id2 = create_new_order(settings.PRODUCT_ID_2, partner_hash_id)
 
     context = {'hash_id': hash_id, 'hash_id2': hash_id2, 'email_receiver': settings.EMAIL_PAYPAL_ACCOUNT, 'value': value1, 'value2': value2, 'availability1': availability1, 'availability2': availability2}
     return render(request, "index.html", context)
