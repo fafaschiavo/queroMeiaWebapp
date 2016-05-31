@@ -60,6 +60,7 @@ class orders(models.Model):
 	quantity = models.IntegerField(default=1)
 	product_id = models.IntegerField(default=0)
 	partner_hash_id = models.CharField(max_length=200, default='')
+	payment_request_id = models.IntegerField(default=0)
 
 	def __hash_id__(self):
 		return self.hash_id
@@ -102,6 +103,9 @@ class orders(models.Model):
 
 	def __partner_hash_id__(self):
 		return self.partner_hash_id
+
+	def __payment_request_id__(self):
+		return self.payment_request_id
 
 class products(models.Model):
 	name = models.CharField(max_length=200)
