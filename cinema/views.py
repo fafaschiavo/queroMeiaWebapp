@@ -208,17 +208,25 @@ def result(request, hash_id):
     	order = orders.objects.get(hash_id = hash_id)
     except:
     	return HttpResponse(400)
+    	print 'flag1'
 
     #if the order was not paid return - 401
     #if there is no available  ticket returne - 402
     #if everything is fine return the ticket code
     try:
     	if order.status == 1:
-    		ticket = tickets.objects.get(order_id = order.id)
-    		return HttpResponse(ticket.code)
+    		ticket = ''
+    		consumed_tickets = tickets.objects.filter(order_id = order.id)
+    		for consumed_ticket in consumed_tickets:
+    			ticket = ticket + consumed_ticket.code + '&'
+    		return HttpResponse(ticket)
+    		# ticket = tickets.objects.get(order_id = order.id)
+    		# return HttpResponse(ticket.code)
     	else:
+    		print 'flag2'
     		return HttpResponse(401)
     except:
+    	print 'flag3'
     	return HttpResponse(402)
 
 def codes(request):
@@ -246,17 +254,21 @@ def desktop_only(request):
 	return HttpResponse('Ops! Este site esta disponivel apenas para Desktops!')
 
 @csrf_exempt
+def edit_order_quantity(request):
+	order = orders.objects.get(hash_id = request.POST['order_hash_id'])
+	product = products.objects.get(id = order.product_id)
+	new_total = float(product.price)*float(request.POST['quantity'])
+	order.amount = new_total
+	order.quantity = int(request.POST['quantity'])
+	order.save()
+	return HttpResponse(new_total)
+
+@csrf_exempt
 def show_me_the_money(sender, **kwargs):
     ipn_obj = sender
-    print 'flag1'
     if ipn_obj.payment_status == ST_PP_COMPLETED:
-    	print 'flag2'
-    	print 'status' + ipn_obj.payment_status
-    	print 'hash_id' + ipn_obj.custom
-    	print 'amount' + str(ipn_obj.mc_gross)
     	order = orders.objects.get(hash_id = ipn_obj.custom)
     	if order.hash_id == ipn_obj.custom and order.amount <= ipn_obj.mc_gross and settings.EMAIL_PAYPAL_ACCOUNT == ipn_obj.receiver_email:
-    		print 'flag3'
     		try:
     			member_exist = members.objects.get(email = ipn_obj.payer_email)
     			member_id = member_exist.id
@@ -264,9 +276,12 @@ def show_me_the_money(sender, **kwargs):
     			member_id = create_new_member(ipn_obj)
     		update_order_success_payment(ipn_obj, member_id)
     		try:
-    			print 'flag4'
-    			code = consume_ticket_code(order.hash_id)
-    			mandrill_success(ipn_obj.payer_email, code)
+    			code_html = ''
+    			for x in xrange(0,order.quantity):
+    				code = consume_ticket_code(order.hash_id)
+    				code_html = code_html + code + '<br>'
+    			# code = consume_ticket_code(order.hash_id)
+    			mandrill_success(ipn_obj.payer_email, code_html)
     		except:
     			bad_request_tickets_not_available(order.id)
 

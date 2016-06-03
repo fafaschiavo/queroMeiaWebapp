@@ -370,7 +370,7 @@
 	
 	
 		<!-- Fullscreen homepage -->
-		<section class="hero_fullscreen newsletter timer mockups background_solid" style="background: url('https://s3-sa-east-1.amazonaws.com/elements-queromeia/background/background-v3.png') center 30% no-repeat; background-size: cover;"><!-- You can edit classes of this section to control the content that i displayed and backgrounds of this section, more info in documentation. -->
+		<section class="hero_fullscreen newsletter timer mockups background_solid" style="background: url('https://s3-sa-east-1.amazonaws.com/elements-queromeia/background/background-v3.png') center 30% no-repeat; background-size: cover; min-height: 1100px;"><!-- You can edit classes of this section to control the content that i displayed and backgrounds of this section, more info in documentation. -->
 			
 			<!-- Logo and navigation -->
 			<div class="header-properties">
@@ -440,10 +440,22 @@
 						  		<span style="font-size: 23px; color: #eec92c; font-weight: 700;">Parabéns!</span> Seu pagamento foi efetuado com sucesso!
 						  	</div>
 						  	<br>
-						  	<div style="margin: auto; width: 90%; text-align: center; font-size: 30px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 20px;">
-						  		Este é seu código promocional:
+						  	<div id='singuler-plural-title' style="margin: auto; width: 90%; text-align: center; font-size: 25px; color: #48494A; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 500; margin: 20px;">
+						  		Estes são seus códigos promocionais:
 						  	</div>
-						  	<div id="ticket-code" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
+						  	<div id="ticket-code1" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
+						  		0000000000
+						  	</div>
+						  	<div id="ticket-code2" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
+						  		0000000000
+						  	</div>
+						  	<div id="ticket-code3" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
+						  		0000000000
+						  	</div>
+						  	<div id="ticket-code4" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
+						  		0000000000
+						  	</div>
+						  	<div id="ticket-code5" style="margin: auto; width: 90%; text-align: center; font-size: 40px; color: #cc2127; font-family: 'Roboto','Helvetica','Arial',sans-serif; font-weight: 900; margin: 25px; letter-spacing: 2px;">
 						  		0000000000
 						  	</div>
 						  	<br>
@@ -740,7 +752,47 @@
 		        	error_block();
 		        	flag = true;
 		        } else {
-		        	$("#ticket-code").text(result);
+		        	tickets = result.split("&");
+		        	tickets.pop();
+		        	console.log(result);
+		        	console.log(tickets);
+		        	console.log(tickets.length)
+		        	if (tickets.length == 1) {
+		        		$('#singuler-plural-title').text('Este é seu código promocional:');
+		        		$("#ticket-code1").text(tickets[0]);
+		        		$("#ticket-code2").css('display', 'none');
+		        		$("#ticket-code3").css('display', 'none');
+		        		$("#ticket-code4").css('display', 'none');
+		        		$("#ticket-code5").css('display', 'none');
+		        	}
+		        	if (tickets.length == 2) {	
+		        		$("#ticket-code1").text(tickets[0]);
+		        		$("#ticket-code2").text(tickets[1]);
+		        		$("#ticket-code3").css('display', 'none');
+		        		$("#ticket-code4").css('display', 'none');
+		        		$("#ticket-code5").css('display', 'none');
+		        	}
+		        	if (tickets.length == 3) {	
+		        		$("#ticket-code1").text(tickets[0]);
+		        		$("#ticket-code2").text(tickets[1]);
+		        		$("#ticket-code3").text(tickets[2]);
+		        		$("#ticket-code4").css('display', 'none');
+		        		$("#ticket-code5").css('display', 'none');
+		        	}
+		        	if (tickets.length == 4) {	
+		        		$("#ticket-code1").text(tickets[0]);
+		        		$("#ticket-code2").text(tickets[1]);
+		        		$("#ticket-code3").text(tickets[2]);
+		        		$("#ticket-code4").text(tickets[3]);
+		        		$("#ticket-code5").css('display', 'none');
+		        	}
+		        	if (tickets.length == 5) {	
+		        		$("#ticket-code1").text(tickets[0]);
+		        		$("#ticket-code2").text(tickets[1]);
+		        		$("#ticket-code3").text(tickets[2]);
+		        		$("#ticket-code4").text(tickets[3]);
+		        		$("#ticket-code5").text(tickets[4]);
+		        	}
 		        	result_block();
 		        	flag = true;
 		        }
@@ -789,6 +841,11 @@
 		button.disabled = true;
 		$("#contact-form-button").text("Sucesso");
 	});
+
+	// var viewport = $(window).height();
+	// if (viewport < 850) {
+	// 	$(".hero_fullscreen").css("min-height", "1080px");
+	// }
 
 	</script>
     

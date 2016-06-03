@@ -589,6 +589,11 @@
 		$("#contact-form-button").text("Sucesso");
 	});
 
+	var viewport = $(window).height();
+	if (viewport < 850) {
+		$(".hero_fullscreen").css("min-height", "880px");
+	}
+
     </script>
 
 	<script>

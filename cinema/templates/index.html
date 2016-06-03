@@ -233,6 +233,40 @@
 				right: 7rem;
 			}
 		}
+		.select-wrap select {
+		  -webkit-appearance:none;
+		  -moz-appearance:none;
+		  appearance:none;
+		  border:none;
+		  padding: 0.5em 2em 0.5em 0.5em;
+		  background: transparent;
+		  position:relative;
+		  cursor:pointer;
+		}
+		.select-wrap {
+		  display:inline-block;
+		  position:relative;
+		  border-left:1px solid #cccccc; 
+		  border-right:1px solid #cccccc;
+		}
+		.select-wrap::after {
+		  display:block;
+		  width:0px;
+		  height:0px;
+		  content:"　";
+		  position:absolute;
+		  right:0.5em;
+		  top:50%;
+		  margin-top:-0.25em;
+		  border-top:0.5em solid #777777;
+		  border-left:0.5em solid transparent;
+		  border-right:0.5em solid transparent;
+		  
+		  
+		  -moz-pointer-events: none;
+		  -webkit-pointer-events: none;
+		  pointer-events: none;
+		}
 	</style>
   </head>
   
@@ -502,31 +536,48 @@
 					  			<span style="font-size: 16px; font-weight: 400;">+ 5,00 (Operação)</span>
 					  		</div>
 					  		<br>
-							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="{{email_receiver}}">
-								<input type="hidden" name="lc" value="BR">
-								<input type="hidden" name="item_name" value="Ingresso - QueroMeia Red">
-								<input type="hidden" name="item_number" value="1">
-								<input type="hidden" name="amount" value="{{value}}">
-								<input type="hidden" name="currency_code" value="BRL">
-								<input type="hidden" name="button_subtype" value="products">
-								<input type="hidden" name="no_note" value="0">
-								<input type="hidden" name="tax_rate" value="0.000">
-								<input type="hidden" name="shipping" value="0.00">
-								<input type="hidden" name="add" value="1">
-								<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-								<input type="hidden" name="notify_url" value="notify_url">
-								<input type="hidden" name="return" value="{{hash_id}}">
-								<input type="hidden" name="custom" value="{{hash_id}}">
-								<input class="buy-butom-paypal" type="image" style="width: 50%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-							</form>
+					  		<div class="mdl-grid input-container">
+							  <div class="mdl-cell mdl-cell--10-col">
+								<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="text-align: right; padding-right: 4%;">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="{{email_receiver}}">
+									<input type="hidden" name="lc" value="BR">
+									<input type="hidden" name="item_name" value="Ingresso - QueroMeia Red">
+									<input type="hidden" name="item_number" value="1">
+									<input type="hidden" name="amount" value="{{value}}">
+									<input type="hidden" name="currency_code" value="BRL">
+									<input type="hidden" name="button_subtype" value="products">
+									<input type="hidden" name="no_note" value="0">
+									<input type="hidden" name="tax_rate" value="0.000">
+									<input type="hidden" name="shipping" value="0.00">
+									<input type="hidden" name="add" value="1">
+									<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+									<input type="hidden" name="notify_url" value="notify_url">
+									<input type="hidden" name="return" value="{{hash_id}}">
+									<input type="hidden" name="custom" value="{{hash_id}}">
+									<input class="buy-butom-paypal" type="image" style="width: 70%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							  </div>
+							  <div class="mdl-cell mdl-cell--2-col">
+							  	<div>
+							  		<span style="color: black;">Quantidade</span>
+							  	</div>
+							    <span class="select-wrap" style="color: black" id="{{hash_id}}">
+							        <select name="" id="" class="select-box">
+							          <option value="1">1</option>
+							          <option value="2">2</option>
+							          <option value="3">3</option>
+							          <option value="4">4</option>
+							          <option value="5">5</option>
+							        </select>
+							    </span>
+							  </div>
+							</div>
 							<div class="spinner" style="display: none"></div>
 							<img style="margin: 10px;" src="https://www.paypal-brasil.com.br/novologocenter/img/paypal/botao-checkout_horizontal_paguecomseguranca_pb.png">
 							<br>
 					  	</div>
-
 					  </div>
 					  <div class="mdl-cell mdl-cell--6-col product-container">
 
@@ -561,26 +612,44 @@
 					  			<span style="font-size: 16px; font-weight: 400;">+ 5,00 (Operação)</span>
 					  		</div>
 							<br>
-							<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="{{email_receiver}}">
-								<input type="hidden" name="lc" value="BR">
-								<input type="hidden" name="item_name" value="Ingresso - QueroMeia Gold">
-								<input type="hidden" name="item_number" value="1">
-								<input type="hidden" name="amount" value="{{value2}}">
-								<input type="hidden" name="currency_code" value="BRL">
-								<input type="hidden" name="button_subtype" value="products">
-								<input type="hidden" name="no_note" value="0">
-								<input type="hidden" name="tax_rate" value="0.000">
-								<input type="hidden" name="shipping" value="0.00">
-								<input type="hidden" name="add" value="1">
-								<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-								<input type="hidden" name="notify_url" value="notify_url">
-								<input type="hidden" name="return" value="{{hash_id2}}">
-								<input type="hidden" name="custom" value="{{hash_id2}}">
-								<input class="buy-butom-paypal" type="image" style="width: 50%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-							</form>
+							<div class="mdl-grid input-container">
+							  <div class="mdl-cell mdl-cell--10-col">
+								<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="text-align: right; padding-right: 4%;">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="{{email_receiver}}">
+									<input type="hidden" name="lc" value="BR">
+									<input type="hidden" name="item_name" value="Ingresso - QueroMeia Gold">
+									<input type="hidden" name="item_number" value="1">
+									<input type="hidden" name="amount" value="{{value2}}">
+									<input type="hidden" name="currency_code" value="BRL">
+									<input type="hidden" name="button_subtype" value="products">
+									<input type="hidden" name="no_note" value="0">
+									<input type="hidden" name="tax_rate" value="0.000">
+									<input type="hidden" name="shipping" value="0.00">
+									<input type="hidden" name="add" value="1">
+									<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+									<input type="hidden" name="notify_url" value="notify_url">
+									<input type="hidden" name="return" value="{{hash_id2}}">
+									<input type="hidden" name="custom" value="{{hash_id2}}">
+									<input class="buy-butom-paypal" type="image" style="width: 70%; height: 60px; font-size: 22px; z-index: 1000;" src="https://s3-sa-east-1.amazonaws.com/elements-queromeia/comprar-buttom.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							  </div>
+							  <div class="mdl-cell mdl-cell--2-col">
+							  	<div>
+							  		<span style="color: black;">Quantidade</span>
+							  	</div>
+							    <span class="select-wrap" style="color: black" id="{{hash_id2}}">
+							        <select name="" id="" class="select-box">
+							          <option value="1">1</option>
+							          <option value="2">2</option>
+							          <option value="3">3</option>
+							          <option value="4">4</option>
+							          <option value="5">5</option>
+							        </select>
+							    </span>
+							  </div>
+							</div>
 							<div class="spinner" style="display: none"></div>
 							<img style="margin: 10px;" src="https://www.paypal-brasil.com.br/novologocenter/img/paypal/botao-checkout_horizontal_paguecomseguranca_pb.png">
 							<br>
@@ -743,12 +812,14 @@
   	{% else %}
   	$("div #1").find(".buy-butom-paypal").attr("src", "https://s3-sa-east-1.amazonaws.com/elements-queromeia/unavailable-buttom.png");
   	$("div #1").find(".buy-butom-paypal").prop("disabled", true);
+  	$("div #1").find(".select-box").prop("disabled", true);
   	{% endif %}
 
   	{% if availability2 %}
   	{% else %}
   	$("div #2").find(".buy-butom-paypal").attr("src", "https://s3-sa-east-1.amazonaws.com/elements-queromeia/unavailable-buttom.png")
   	$("div #2").find(".buy-butom-paypal").prop("disabled", true);
+  	$("div #2").find(".select-box").prop("disabled", true);
   	{% endif %}
 
 	var notify_url_fields = jQuery( "[name='notify_url']" );
@@ -774,8 +845,8 @@
 	var url = window.location.host;
 	var protocol = window.location.protocol;
 	$("input").click(function() {
-		var element = $(this).closest("div");
-		element.find("form").css("display", "none");
+		var element = $(this).closest(".text-box-2");
+		element.find(".input-container").css("display", "none");
 		element.find(".spinner").css("display", "block");
 	});
 
@@ -871,8 +942,34 @@
 
 	var viewport = $(window).height();
 	if (viewport < 850) {
-		$(".hero_fullscreen").css("min-height", "880px");
+		$(".hero_fullscreen").css("min-height", "980px");
 	}
+
+	$( ".select-box").change(function() {
+		var element = $(this).closest(".text-box-2");
+		element.find(".input-container").css("display", "none");
+		element.find(".spinner").css("display", "inline");
+		var form_amount_input = $(this).closest('.input-container').find('[name="amount"]');
+		var quantity = $(this).closest('span').find(".select-box option:selected").text();
+		var order_hash_id = $(this).closest('span').attr('id');
+		$.ajax({
+	        url: '{% url 'edit_order_quantity' %}',
+	        data: { 
+		        "order_hash_id": order_hash_id,
+		        "quantity": quantity
+		    },
+	        type: 'post',
+	        success: function(data) {
+	        	form_amount_input.attr('value', data);
+				element.find(".input-container").css("display", "");
+				element.find(".spinner").css("display", "none");
+	        },
+	        failure: function(data) {
+	            console.log('Got an error dude');
+	        }
+	    });
+
+	});
 
     </script>
 
