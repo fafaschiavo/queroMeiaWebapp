@@ -160,7 +160,7 @@ def bad_request_tickets_not_available(order_id):
 	order_id_request = order_id
 	bad_request = bad_requests(problem_type = 'Ticket not available', order_id = order_id_request)
 	bad_request.save()
-	mandrill_bad_request(bad_request.problem_type, bad_request.id)
+	# mandrill_bad_request(bad_request.problem_type, bad_request.id)
 	return None
 
 # Create your views here.
@@ -311,8 +311,8 @@ def show_me_the_money_invalid(sender, **kwargs):
 
 def contact_form(request):
 	context = {}
-	msg = EmailMultiAlternatives(subject="Contato - Form - <" + request.POST['contact-email'] , body=request.POST['contact-message'] + '      -      ' + request.POST['contact-name'] + ' - ' + request.POST['contact-email'], from_email=request.POST['contact-name'] + "<atendimento@queromeia.com>",to=["atendimento@queromeia.com"])
-	msg.send()
+	# msg = EmailMultiAlternatives(subject="Contato - Form - <" + request.POST['contact-email'] , body=request.POST['contact-message'] + '      -      ' + request.POST['contact-name'] + ' - ' + request.POST['contact-email'], from_email=request.POST['contact-name'] + "<atendimento@queromeia.com>",to=["atendimento@queromeia.com"])
+	# msg.send()
 	return HttpResponse(200)
 
 payment_was_successful.connect(show_me_the_money)
